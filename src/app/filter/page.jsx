@@ -1,6 +1,11 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+// dsfddsifhdjfjdfdnjfdfd
+
+// dfd
+// fd
+// fdf
 
 // ICONLAR
 import { FaMobileAlt, FaPaintBrush, FaBrain } from "react-icons/fa";
