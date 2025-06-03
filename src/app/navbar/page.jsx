@@ -32,12 +32,14 @@ function Navbar() {
             </Link>
           </div>
           <div>
-            <button
-              type="button"
-              className="font-bold text-white bg-gradient-to-r from-[#F2994A] to-[#F6BC88] pr-12 pl-12 pt-3.5 pb-3.5 rounded-[32px]"
-            >
-              Buyurtma berish
-            </button>
+            <Link href={"/order"}>
+              <button
+                type="button"
+                className="font-bold cursor-pointer text-white bg-gradient-to-r from-[#F2994A] to-[#F6BC88] pr-12 pl-12 pt-3.5 pb-3.5 rounded-[32px]"
+              >
+                Buyurtma berish
+              </button>
+            </Link>
           </div>
         </div>
       </div>

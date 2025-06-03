@@ -12,7 +12,6 @@ function page() {
       <Navbar />
       <Slider />
       <Filter />
-      <Cards />
       <Comments />
       <Footer />
     </div>

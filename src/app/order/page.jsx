@@ -206,7 +206,7 @@ export default function OrderPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-200 flex items-center justify-center py-10 px-4">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="w-full max-w-3xl bg-white p-8 rounded-3xl shadow-2xl">
         <h1 className="text-4xl font-extrabold mb-6 text-center text-gray-800">
           Buyurtma Berish
