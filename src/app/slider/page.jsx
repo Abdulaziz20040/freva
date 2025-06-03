@@ -117,7 +117,7 @@ const Slider = () => {
   const currentSlide = sliderData[index];
 
   return (
-    <div className="relative w-full min-h-[550px] bg-[#FFF5ED] flex items-center justify-center overflow-hidden">
+    <div className="relative mt-18 w-full min-h-[550px] bg-[#FFF5ED] flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -161,7 +161,17 @@ const Slider = () => {
 
           {/* O‘ng qism */}
           <div className="relative flex-1 flex justify-center items-center min-h-[300px]">
-            <div className="absolute top-0 right-5 bg-[rgba(255,253,253,0.6)]  backdrop-blur-[10.514656066894531px]e shadow-md rounded-xl p-3 flex items-center gap-2">
+            <button
+              className="
+    absolute top-0 right-5 
+    bg-[rgba(255,253,253,0.6)] backdrop-blur-[10.5px] 
+    shadow-md rounded-xl p-3 
+    flex items-center gap-2 cursor-pointer
+    transform transition-transform duration-500 ease-in-out
+    hover:-translate-y-2 hover:shadow-lg hover:scale-[1.05]
+    focus:outline-none
+  "
+            >
               <div className="text-2xl text-[#3B82F6]">📁</div>
               <div>
                 <div className="text-lg font-semibold">
@@ -171,7 +181,7 @@ const Slider = () => {
                   {currentSlide.badgeText}
                 </div>
               </div>
-            </div>
+            </button>
 
             <Image
               src={image}
@@ -180,8 +190,18 @@ const Slider = () => {
               height={500}
               className="rounded-lg z-10"
             />
-
-            <div className="absolute w-[180px] h-[100px] text-center z-10 bottom-20 left-10 bg-[rgba(255,253,253,0.6)] shadow-[0px_5px_10px_0px_rgba(51,48,48,0.25)] backdrop-blur-[10.514656066894531px] rounded-xl p-3 flex flex-col items-center justify-center gap-2">
+            <div
+              className="
+    absolute w-[180px] h-[100px] text-center z-10 bottom-20 left-10 
+    bg-[rgba(255,253,253,0.6)] 
+    shadow-[0px_5px_10px_0px_rgba(51,48,48,0.25)] 
+    backdrop-blur-[10.5px] rounded-xl p-3 
+    flex flex-col items-center justify-center gap-2 
+    transform transition-transform duration-300 ease-in-out
+    hover:-translate-y-2 hover:shadow-lg hover:scale-[1.05]
+    cursor-pointer
+  "
+            >
               <div className="text-xl text-orange-400">⚡</div>
               <div className="text-sm text-gray-600">
                 {currentSlide.featureText}

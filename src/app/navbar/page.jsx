@@ -1,49 +1,78 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Vector from "../navbar/Vector.png";
 
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // 10px dan keyin background ko‘rinadi
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <div className=" ">
-        <div className="flex justify-between items-center p-5">
-          <div className="">
-            {/* Comment */}
-            <Link href="/" className="flex justify-center flex-col">
-              <h2 className="font-bold text-[35px] ml-2 text-[#F2994A]">
-                Freva
-              </h2>
-              <Image src={Vector} alt="jnvjlk" />
-            </Link>
-          </div>
-          <div className="flex justify-around alig gap-14">
-            <Link href="/">
-              <h1 className=" text-lg font-bold text-[#F2994A]">Asosiy</h1>
-            </Link>
-            <Link href="/about">
-              <h4 className=" text-lg font-medium">Biz haqimizda</h4>
-            </Link>
-            <Link href="/pockets">
-              <h4 className=" text-lg font-medium">Paketlar</h4>
-            </Link>
-            <Link href="/costs">
-              <h4 className=" text-lg font-medium">Narxlar</h4>
-            </Link>
-          </div>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 p-2 ${
+        scrolled ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-[1342px] mx-auto  flex justify-between items-center">
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center space-x-2">
           <div>
-            <Link href={"/order"}>
-              <button
-                type="button"
-                className="font-bold cursor-pointer text-white bg-gradient-to-r from-[#F2994A] to-[#F6BC88] pr-12 pl-12 pt-3.5 pb-3.5 rounded-[32px]"
-              >
-                Buyurtma berish
-              </button>
-            </Link>
+            <h2 className="text-[32px] font-extrabold text-[#F2994A] leading-none">
+              Freva
+            </h2>
           </div>
+        </Link>
+
+        {/* Nav Links */}
+        <nav className="hidden md:flex gap-10 items-center">
+          <Link
+            href="/"
+            className="text-[#F2994A] font-semibold text-lg hover:underline underline-offset-4"
+          >
+            Asosiy
+          </Link>
+          <Link
+            href="/about"
+            className="text-gray-700 font-medium text-lg hover:text-[#F2994A]"
+          >
+            Biz haqimizda
+          </Link>
+          <Link
+            href="/pockets"
+            className="text-gray-700 font-medium text-lg hover:text-[#F2994A]"
+          >
+            Paketlar
+          </Link>
+          <Link
+            href="/costs"
+            className="text-gray-700 font-medium text-lg hover:text-[#F2994A]"
+          >
+            Narxlar
+          </Link>
+        </nav>
+
+        {/* CTA Button */}
+        <div>
+          <Link href="/order">
+            <button
+              type="button"
+              className="transition-all cursor-pointer duration-200 text-white font-semibold text-sm md:text-base bg-gradient-to-r from-[#F2994A] to-[#F6BC88] px-6 py-2.5 rounded-full shadow hover:shadow-lg"
+            >
+              Buyurtma berish
+            </button>
+          </Link>
         </div>
       </div>
-    </>
+    </header>
   );
 }
 
