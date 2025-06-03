@@ -21,13 +21,13 @@ function Navbar() {
             <Link href="/">
               <h1 className=" text-lg font-bold text-[#F2994A]">Asosiy</h1>
             </Link>
-            <Link href="/">
+            <Link href="/bizHaqimizda">
               <h4 className=" text-lg font-medium">Biz haqimizda</h4>
             </Link>
-            <Link href="/">
+            <Link href="/pockets">
               <h4 className=" text-lg font-medium">Paketlar</h4>
             </Link>
-            <Link href="/">
+            <Link href="/costs">
               <h4 className=" text-lg font-medium">Narxlar</h4>
             </Link>
           </div>

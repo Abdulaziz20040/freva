@@ -1,63 +1,39 @@
-import React from "react";
+"use client";
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 import { FiEye } from "react-icons/fi";
 
-const cardData = [
-  {
-    id: 1,
-    title: "Mobile App UI Kit Food App",
-    description:
-      "Ajayib dizaynga ega zamonaviy Food App foydalanuvchilarga tez va qulay ovqat buyurtma qilish imkonini beradi.",
-    image:
-      "https://i.pinimg.com/736x/a5/56/6e/a5566ea7fda762a96be8c6bec88ed4a3.jpg",
-    likes: 13,
-    bookmarks: 34,
-  },
-  {
-    id: 2,
-    title: "Mobile App UI Kit Food App",
-    description:
-      "Ajayib dizaynga ega zamonaviy Food App foydalanuvchilarga tez va qulay ovqat buyurtma qilish imkonini beradi.",
-    image:
-      "https://i.pinimg.com/736x/a5/56/6e/a5566ea7fda762a96be8c6bec88ed4a3.jpg",
-    likes: 13,
-    bookmarks: 34,
-  },
-  {
-    id: 3,
-    title: "Mobile App UI Kit Food App",
-    description:
-      "Ajayib dizaynga ega zamonaviy Food App foydalanuvchilarga tez va qulay ovqat buyurtma qilish imkonini beradi.",
-    image:
-      "https://i.pinimg.com/736x/a5/56/6e/a5566ea7fda762a96be8c6bec88ed4a3.jpg",
-    likes: 13,
-    bookmarks: 34,
-  },
-  {
-    id: 4,
-    title: "Mobile App UI Kit Food App",
-    description:
-      "Ajayib dizaynga ega zamonaviy Food App foydalanuvchilarga tez va qulay ovqat buyurtma qilish imkonini beradi.",
-    image:
-      "https://i.pinimg.com/736x/a5/56/6e/a5566ea7fda762a96be8c6bec88ed4a3.jpg",
-    likes: 13,
-    bookmarks: 34,
-  },
-];
-
 function Cards() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .then((response) => {
+        const frontendCards = response.data.filter(
+          (item) => item.categories === "frontend"
+        );
+        setData(frontendCards);
+      })
+      .catch((error) => {
+        console.error("Error fetching card data:", error);
+      });
+  }, []);
+
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
-      {cardData.map((card) => (
+      {data.map((card, index) => (
         <div
-          key={card.id}
+          key={index}
           className="w-full sm:w-[45%] lg:w-[22%] bg-transparent rounded-b-2xl overflow-hidden shadow-lg"
         >
           {/* Top Image Section */}
           <div className="w-full h-52 bg-pink-500">
             <img
-              src={card.image}
+              src={card.img}
               alt={card.title}
               className="w-full h-full object-cover"
             />
@@ -65,22 +41,22 @@ function Cards() {
 
           {/* Bottom Body Section */}
           <div className="bg-white rounded-b-2xl p-4">
-            <p className="text-sm text-pink-600 font-semibold">Food App</p>
-            <p className="text-sm text-gray-600 mb-2">Mobile Design</p>
+            <p className="text-sm text-pink-600 font-semibold">Frontend</p>
+            <p className="text-sm text-gray-600 mb-2">Web UI</p>
             <h2 className="font-bold text-orange-500 text-md mb-2">
               {card.title}
             </h2>
-            <p className="text-gray-500 text-sm mb-3">{card.description}</p>
+            <p className="text-gray-500 text-sm mb-3">{card.desc}</p>
 
             <div className="flex justify-between items-center text-gray-500 text-sm mb-3">
               <span className="flex items-center gap-1">
-                <AiOutlineHeart /> {card.likes}
+                <AiOutlineHeart /> {card.like}
               </span>
               <span className="flex items-center gap-1">
-                <BsBookmark /> {card.bookmarks}
+                <BsBookmark /> {card.comment}
               </span>
               <span className="flex items-center gap-1">
-                <FiEye /> 0
+                <FiEye /> {card.eye}
               </span>
             </div>
 
