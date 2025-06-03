@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-
+// loiheluhwelrkquherlkwehjrfqw
 // ICONLAR
 import { FaMobileAlt, FaPaintBrush, FaBrain } from "react-icons/fa";
 import { BiCodeAlt, BiChevronLeft, BiChevronRight } from "react-icons/bi";
@@ -11,7 +11,7 @@ import MobileContent from "./MobileContent ";
 import UIDesignContent from "./UIDesignContent ";
 import BackendContent from "./BackendContent ";
 import WebContent from "./WebContent ";
-
+// onflkjfnfnq3irfun
 const filters = [
   {
     icon: <FaMobileAlt />,
