@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fff5ec;
+  width: 1342px;
+  margin: 0 auto;
+}
+
+/* custom scrollbarni yashirish uchun */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE va Edge uchun */
+  scrollbar-width: none; /* Firefox uchun */
+}
