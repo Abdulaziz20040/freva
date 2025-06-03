@@ -21,7 +21,7 @@ function Navbar() {
             <Link href="/">
               <h1 className=" text-lg font-bold text-[#F2994A]">Asosiy</h1>
             </Link>
-            <Link href="/bizHaqimizda">
+            <Link href="/about">
               <h4 className=" text-lg font-medium">Biz haqimizda</h4>
             </Link>
             <Link href="/pockets">
