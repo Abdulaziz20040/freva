@@ -1,8 +1,6 @@
-import { Inter } from "next/font/google";
-
 import "./globals.css";
+import Navbar from "./navbar/page";
 
-// Metadata (favicon + SEO uchun)
 export const metadata = {
   title: "Freva",
   description:
@@ -11,7 +9,7 @@ export const metadata = {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo.svg", type: "image/svg+xml" }, // vector version
+      { url: "/logo.svg", type: "image/svg+xml" },
     ],
   },
 };
@@ -24,7 +22,6 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        {/* Structured data: Google uchun sayt logosi */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -32,13 +29,16 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Freva",
-              url: "https://your-domain.com", // bu yerga o‘z domeningizni yozing
-              logo: "https://your-domain.com/logo.png", // logo to‘liq URL bilan
+              url: "https://your-domain.com",
+              logo: "https://your-domain.com/logo.png",
             }),
           }}
         />
       </head>
-      <body className={`  antialiased`}>{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
