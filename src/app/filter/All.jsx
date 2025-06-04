@@ -6,6 +6,7 @@ import { Pagination } from "antd";
 import "antd/dist/reset.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import LazyBackground from "./LazyBackground";
 
 function All() {
   const [data, setData] = useState([]);
@@ -70,12 +71,10 @@ function All() {
             variants={cardVariants}
             whileHover={{ scale: 1.05 }}
           >
-            <div
-              className="h-full w-full bg-cover transition-transform duration-500 group-hover:scale-110"
-              style={{
-                backgroundImage: `url(${card.img})`,
-                backgroundPosition: "left top",
-              }}
+            <LazyBackground
+              src={card.img}
+              className="h-full w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+              style={{ backgroundPosition: "left top" }}
             />
             <div
               style={{
