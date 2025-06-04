@@ -24,14 +24,14 @@ function Cards() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 p-6">
+    <div className="flex flex-wrap justify-center gap-6">
       {data.map((card, index) => (
         <div
           key={index}
-          className="w-full sm:w-[45%] lg:w-[22%] bg-transparent rounded-b-2xl overflow-hidden shadow-lg"
+          className="w-full bg-pink-500 sm:w-[45%] lg:w-[22%] rounded-b-[8px] rounded-t-[5px]  overflow-hidden shadow-lg"
         >
           {/* Top Image Section */}
-          <div className="w-full h-52 bg-pink-500">
+          <div className="w-full h-52 ">
             <img
               src={card.img}
               alt={card.title}
@@ -40,27 +40,28 @@ function Cards() {
           </div>
 
           {/* Bottom Body Section */}
-          <div className="bg-white rounded-b-2xl p-4">
-            <p className="text-sm text-pink-600 font-semibold">Frontend</p>
-            <p className="text-sm text-gray-600 mb-2">Web UI</p>
-            <h2 className="font-bold text-orange-500 text-md mb-2">
-              {card.title}
-            </h2>
-            <p className="text-gray-500 text-sm mb-3">{card.desc}</p>
+          <div className="bg-white rounded-b-2xl h-full p-4 rounded-l-[50px]">
+            <div className="p-2">
+              <h2 className="font-bold text-[22px] text-orange-500 text-md ">
+                {card.title}
+              </h2>
+              <p className="text-sm text-gray-600 mt-3 mb-2">Web UI</p>
 
+              <p className="text-gray-500 text-sm mb-3">{card.desc}</p>
+            </div>
             <div className="flex justify-between items-center text-gray-500 text-sm mb-3">
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 cursor-pointer">
                 <AiOutlineHeart /> {card.like}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 cursor-pointer">
                 <BsBookmark /> {card.comment}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 cursor-pointer">
                 <FiEye /> {card.eye}
               </span>
             </div>
 
-            <button className="w-full bg-orange-200 text-orange-700 font-semibold py-2 rounded-md hover:bg-orange-300 transition">
+            <button className="w-full cursor-pointer bg-orange-200 text-orange-700 font-semibold py-2 rounded-md hover:bg-orange-300 transition">
               Ko‘rish
             </button>
           </div>

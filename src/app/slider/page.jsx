@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FiSearch } from "react-icons/fi";
+import { FiFolder, FiSearch } from "react-icons/fi";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import image from "../../../img/1.png";
+import "../globals.css";
+import { FaFolder } from "react-icons/fa";
 
 const sliderData = [
   {
@@ -105,19 +107,24 @@ const variants = {
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % sliderData.length);
-    }, 10000); // 10 soniyada bir marta
+    let interval;
+
+    if (searchTerm.trim() === "") {
+      interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % sliderData.length);
+      }, 10000);
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [searchTerm]);
 
   const currentSlide = sliderData[index];
 
   return (
-    <div className="relative mt-18 w-full min-h-[550px] bg-[#FFF5ED] flex items-center justify-center overflow-hidden">
+    <div className="relative mt-25 w-full min-h-[550px] flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -129,31 +136,53 @@ const Slider = () => {
         >
           {/* Chap qism */}
           <div className="flex-1 space-y-5 max-w-[600px]">
-            <h1 className="text-4xl md:text-5xl font-bold leading-snug text-black">
+            <h1 className="text-4xl md:text-[40px] textTitle font-bold leading-snug text-white">
               {currentSlide.title}{" "}
-              <span className="text-[#FF9F48]">{currentSlide.highlight}</span>
+              <span
+                style={{
+                  background:
+                    "linear-gradient(93.59deg, #1ECC52 36.79%, #29CA59 77.82%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
+                {currentSlide.highlight}
+              </span>
             </h1>
 
-            <div className="space-y-1 text-[rgba(79, 79, 79, 1)] text-sm md:text-base">
+            <div className="space-y-1 text-[rgba(79, 79, 79, 1)] desc text-sm md:text-base">
               {currentSlide.description.map((line, i) => (
                 <p key={i}>{line}</p>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-3 font-bold text-[#FF9F48]">
+            <div
+              style={{
+                background:
+                  "linear-gradient(93.59deg, #1ECC52 36.79%, #29CA59 77.82%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+              className="flex flex-wrap gap-3 pt-3 font-bold "
+            >
               {currentSlide.tags.map((tag, i) => (
                 <span key={i}>{tag}</span>
               ))}
             </div>
 
             <div className="flex items-center bg-white shadow-md rounded-full mt-5 p-2 w-full max-w-md">
-              <FiSearch className="text-[#FF9F48] text-xl ml-3" />
+              <FiSearch className="text-[rgba(2,224,61,1)] text-[25px] ml-3 p-1 rounded" />
+
               <input
                 type="text"
                 placeholder="Qidirish"
-                className="flex-grow px-3 py-2 outline-none rounded-full"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="flex-grow px-3 py-2 text-black placeholder-gray-400 outline-none rounded-full"
               />
-              <button className="bg-[linear-gradient(180deg,_#F2994A_0%,_#F6BC88_100%)] text-white font-semibold px-6 py-2 rounded-full">
+
+              <button className="bg-gradient-to-r from-[#1ECC52] to-[#29CA59] cursor-pointer text-white font-semibold px-6 py-2 rounded-full transition-transform duration-300 ease-in-out hover:-translate-y-1">
                 Qidirish
               </button>
             </div>
@@ -172,12 +201,12 @@ const Slider = () => {
     focus:outline-none
   "
             >
-              <div className="text-2xl text-[#3B82F6]">📁</div>
               <div>
-                <div className="text-lg font-semibold">
+                <div className="text-lg font-semibold flex items-center gap-3 justify-center">
+                  <FaFolder className="text-2xl text-[#3B82F6]" />
                   {currentSlide.projectsCount}
                 </div>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-white">
                   {currentSlide.badgeText}
                 </div>
               </div>
@@ -203,7 +232,7 @@ const Slider = () => {
   "
             >
               <div className="text-xl text-orange-400">⚡</div>
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-white">
                 {currentSlide.featureText}
               </div>
             </div>
@@ -218,7 +247,9 @@ const Slider = () => {
             key={i}
             onClick={() => setIndex(i)}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition ${
-              i === index ? "bg-[#FF9F48]" : "bg-[#FFD4A8]"
+              i === index
+                ? "bg-gradient-to-r from-[#1ECC52] to-[#29CA59]"
+                : "bg-[#e3f7e8]"
             }`}
           ></div>
         ))}

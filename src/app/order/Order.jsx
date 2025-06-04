@@ -201,8 +201,8 @@ export default function OrderPage() {
 
   return (
     <div className="">
-      <div className="w-full max-w-3xl bg-white p-14 overflow-y-auto max-h-[710px] no-scrollbar">
-        <h1 className="text-4xl font-extrabold mb-10 text-center text-[#F2994A]">
+      <div className="w-full max-w-3xl text-white p-14 overflow-y-auto max-h-[710px] no-scrollbar">
+        <h1 className="text-4xl font-extrabold mb-10 text-center text-[#02E03D]">
           Buyurtma Berish
         </h1>
 
@@ -512,12 +512,26 @@ export default function OrderPage() {
                 </Button>
               )}
               {current < 2 && (
-                <Button type="primary" onClick={next}>
+                <Button
+                  onClick={next}
+                  style={{
+                    backgroundColor: "#02E03D",
+                    borderColor: "#02E03D",
+                    color: "white",
+                  }}
+                >
                   Keyingi
                 </Button>
               )}
               {current === 2 && (
-                <Button type="primary" htmlType="submit">
+                <Button
+                  style={{
+                    backgroundColor: "#02E03D",
+                    borderColor: "#02E03D",
+                    color: "white",
+                  }}
+                  htmlType="submit"
+                >
                   Saqlash
                 </Button>
               )}

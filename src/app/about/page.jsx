@@ -1,76 +1,73 @@
 import React from "react";
+import { FaFolder } from "react-icons/fa";
 
 function About() {
   return (
-    <div className="bg-white text-gray-800 px-6 py-12 md:px-20">
-      {/* Hero Section */}
-      <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Biz kimmiz?</h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          Freva.uz — bu frontend, dizayn va mobil yo‘nalishlarda xizmat
-          ko‘rsatadigan zamonaviy jamoa. Biz sifatli va tez xizmat ko‘rsatamiz.
-        </p>
-      </section>
-
-      {/* Jamoa haqida */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-6">Jamoamiz haqida</h2>
-        <p className="text-base md:text-lg max-w-3xl">
-          Biz front-end dasturchilar, dizaynerlar va mobil interfeys
-          mutaxassislaridan iborat jamoamiz. Har bir loyiha biz uchun muhim.
-          Sifat, tezlik va mijoz ehtiyojini tushunish — ustuvor vazifamiz.
-        </p>
-      </section>
-
-      {/* Xizmatlar */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-6">Yo‘nalishlarimiz</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              title: "Frontend",
-              desc: "React, Next.js, Tailwind bilan zamonaviy web saytlar tayyorlaymiz.",
-            },
-            {
-              title: "Figma",
-              desc: "UI/UX dizayn, prototiplash va foydalanuvchi uchun qulay interfeyslar.",
-            },
-            {
-              title: "Mobil dizayn",
-              desc: "Android va iOS ilovalar uchun interfeys dizayni.",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition"
-            >
-              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
+    <div className="mb-10">
+      <div className="text-center text-[50px] font-bold mb-10">
+        <h4>Biz Haqimizda</h4>
+      </div>
+      <div className="flex justify-between gap-3 p-4">
+        <div>
+          <h3 className="font-bold text-[40px]">Biz kimmiz?</h3>
+          <p className="text-[30px] leading-12 font-medium">
+            Freva.uz — bu frontend, dizayn va mobil yo‘nalishlarda xizmat
+            ko‘rsatadigan zamonaviy jamoa. Biz sifatli va tez xizmat
+            ko‘rsatamiz.
+          </p>
         </div>
-      </section>
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5612AQGpqOaZoekFfQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1730246819363?e=2147483647&v=beta&t=yO2HPPm304uZCCL5pABVwPmt9AN2DKY4ZHMqoEdUjms"
+          alt=""
+          className="w-[800px] rounded-[13px] h-[350px]"
+        />
+      </div>
 
-      {/* Nega biz? */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-6">Nega bizni tanlashadi?</h2>
-        <ul className="list-disc ml-5 text-base md:text-lg space-y-2">
-          <li>✅ Tez va sifatli bajariladigan ishlar</li>
-          <li>✅ Har bir buyurtmaga individual yondashuv</li>
-          <li>✅ Muntazam aloqa va fikr almashish</li>
-          <li>✅ Tajribali va mas’uliyatli jamoa</li>
-        </ul>
-      </section>
-
-      {/* CTA */}
-      <section className="text-center mt-16">
-        <h3 className="text-2xl font-semibold mb-4">
-          Loyihangizni bizga ishonib topshiring!
-        </h3>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition">
-          Zakaz berish
-        </button>
-      </section>
+      <div className="flex justify-between gap-5 mt-14">
+        <div>
+          <div className="w-[300px] bg-blue-100 p-5 rounded-3xl">
+            <h4 className="font-semibold text-[30px]">Frontend</h4>
+            <p className="text-[15px] font-normal leading-6">
+              React, Next.js, Tailwind bilan zamonaviy web saytlar tayyorlaymiz.
+            </p>
+          </div>
+          <div className="w-[300px] bg-blue-100 p-5 rounded-3xl mt-5 mb-5">
+            <h3 className="font-semibold text-[30px]">Figma</h3>
+            <p className="text-[15px] font-normal leading-6">
+              UI/UX dizayn, prototiplash va foydalanuvchi uchun qulay
+              interfeyslar.
+            </p>
+          </div>
+          <div className="w-[300px] bg-blue-100 p-5 rounded-3xl">
+            <h3 className="font-semibold text-[30px]">Mobil dizayn</h3>
+            <p className="text-[15px] font-normal leading-6">
+              Android va iOS ilovalar uchun interfeys dizayni.
+            </p>
+          </div>
+        </div>
+        {/* //////////////////////////////////////////////////////////////// */}
+        <div className="bg-blue-100 backdrop-blur-md text-cyan-900 p-7 rounded-2xl shadow-md">
+          <h2 className="font-semibold text-[28px] leading-snug mb-4">
+            Jamoamiz haqida
+          </h2>
+          <p className="text-[22px] font-normal leading-9">
+            Biz front-end dasturchilar, dizaynerlar va mobil interfeys
+            mutaxassislaridan iborat jamoamiz. Har bir loyiha biz uchun muhim.
+            Sifat, tezlik va mijoz ehtiyojini tushunish — ustuvor vazifamiz. Biz
+            front-end dasturchilar, dizaynerlar va mobil interfeys
+            mutaxassislaridan iborat jamoamiz. Har bir loyiha biz uchun muhim.
+            Sifat, tezlik va mijoz ehtiyojini tushunish — ustuvor vazifamiz. Biz
+            front-end dasturchilar, dizaynerlar va mobil interfeys
+            mutaxassislaridan iborat jamoamiz. Har bir loyiha biz uchun muhim.
+            Sifat, tezlik va mijoz ehtiyojini tushunish — ustuvor vazifamiz. Biz
+            front-end dasturchilar, dizaynerlar va mobil interfeys
+            mutaxassislaridan iborat jamoamiz. Har bir loyiha biz uchun muhim.
+            Sifat, tezlik va mijoz ehtiyojini tushunish — ustuvor vazifamiz. Biz
+            front-end dasturchilar, dizaynerlar va mobil interfeys
+            mutaxassislaridan iborat jamoamiz.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

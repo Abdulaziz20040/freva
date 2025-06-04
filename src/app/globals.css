@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
 .containes {
-  background-color: #fff5ec;
+  max-width: 100%;
   width: 1342px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
-body {
+
+body,
+html {
+  overflow-x: hidden;
   font-family: "Inter", sans-serif;
-  background-color: #fff5ec;
+  background: linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%);
+  color: white;
   margin: 0;
   padding: 0;
 }
@@ -20,4 +25,32 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none; /* IE va Edge uchun */
   scrollbar-width: none; /* Firefox uchun */
+}
+
+.textTitle {
+  font-family: "Oswald", sans-serif;
+}
+
+.desc {
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  color: #bbb;
+}
+/* Step doira (icon) fonini yashil qilish */
+.ant-steps-item-icon {
+  background-color: #ffffff !important;
+  border-color: #02e03d !important;
+}
+
+/* Faol va tugallangan step doiralari uchun ham rang */
+.ant-steps-item-finish .ant-steps-item-icon,
+.ant-steps-item-process .ant-steps-item-icon {
+  background-color: #02e03d !important;
+  border-color: #02e03d !important;
+  color: #ffffff;
+}
+
+/* Step title matnini oq qilish */
+.ant-steps-item-title {
+  color: white !important;
 }

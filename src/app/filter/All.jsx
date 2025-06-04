@@ -1,0 +1,111 @@
+"use client";
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Pagination } from "antd";
+import "antd/dist/reset.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+function All() {
+  const [data, setData] = useState([]);
+  const [current, setCurrent] = useState(1);
+  const cardsPerPage = 6;
+
+  // Har safar sahifa o'zgarganda animatsiyani ishga tushirish uchun
+  const { ref, inView } = useInView({
+    triggerOnce: false, // har safar ko‘ringanda ishga tushadi
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    axios
+      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const indexOfLastCard = current * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = data.slice(indexOfFirstCard, indexOfLastCard);
+
+  const onChange = (page) => {
+    setCurrent(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  return (
+    <div className="container mx-auto">
+      {/* Card container */}
+      <motion.div
+        ref={ref}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        key={current} // sahifa o‘zgarganda qayta animatsiya
+      >
+        {currentCards.map((card, index) => (
+          <motion.div
+            key={index}
+            className="h-[260px] w-full cursor-pointer rounded-lg overflow-hidden shadow-lg relative group"
+            variants={cardVariants}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div
+              className="h-full w-full bg-cover transition-transform duration-500 group-hover:scale-110"
+              style={{
+                backgroundImage: `url(${card.img})`,
+                backgroundPosition: "left top",
+              }}
+            />
+            <div
+              style={{
+                borderRadius: "200px 0 0 0",
+                padding: "40px 0px 0px 70px",
+              }}
+              className="absolute bottom-0 right-0 bg-black/60 backdrop-blur-md h-[140px] w-[270px] text-left"
+            >
+              <h2 className="font-bold text-xl text-orange-400">
+                {card.title}
+              </h2>
+              <p className="text-sm text-gray-300 mt-1 mb-1">Web UI</p>
+              <p className="text-gray-300 text-sm">{card.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Pagination */}
+      <div className="flex justify-center mt-10">
+        <Pagination
+          current={current}
+          onChange={onChange}
+          total={data.length}
+          pageSize={cardsPerPage}
+          showSizeChanger={false}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default All;
