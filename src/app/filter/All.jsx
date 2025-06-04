@@ -69,7 +69,6 @@ function All() {
             key={index}
             className="h-[260px] w-full cursor-pointer rounded-lg overflow-hidden shadow-lg relative group"
             variants={cardVariants}
-            whileHover={{ scale: 1.05 }}
           >
             <LazyBackground
               src={card.img}
