@@ -7,6 +7,7 @@ import "antd/dist/reset.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import LazyBackground from "./LazyBackground";
+import Link from "next/link";
 
 function All() {
   const [data, setData] = useState([]);
@@ -70,11 +71,13 @@ function All() {
             className="h-[260px] w-full cursor-pointer rounded-lg overflow-hidden shadow-lg relative group"
             variants={cardVariants}
           >
-            <LazyBackground
-              src={card.img}
-              className="h-full w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
-              style={{ backgroundPosition: "left top" }}
-            />
+            <Link href={`/details/${card.id}`}>
+              <LazyBackground
+                src={card.img}
+                className="h-full w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundPosition: "left top" }}
+              />
+            </Link>
             <div
               style={{
                 borderRadius: "200px 0 0 0",
@@ -82,7 +85,7 @@ function All() {
               }}
               className="absolute bottom-0 right-0 bg-black/60 backdrop-blur-md h-[140px] w-[270px] text-left"
             >
-              <h2 className="font-bold text-xl text-orange-400">
+              <h2 className="font-bold text-xl text-orange-400 font-sans">
                 {card.title}
               </h2>
               <p className="text-sm text-gray-300 mt-1 mb-1">Web UI</p>

@@ -136,7 +136,7 @@ const Slider = () => {
         >
           {/* Chap qism */}
           <div className="flex-1 space-y-5 max-w-[600px]">
-            <h1 className="text-4xl md:text-[40px] textTitle font-bold leading-snug text-white">
+            <h1 className="text-4xl md:text-[40px] font-roboto font-bold leading-snug text-white">
               {currentSlide.title}{" "}
               <span
                 style={{
@@ -151,7 +151,7 @@ const Slider = () => {
               </span>
             </h1>
 
-            <div className="space-y-1 text-[rgba(79, 79, 79, 1)] desc text-sm md:text-base">
+            <div className=" text-[rgba(79, 79, 79, 1)] font-[500]  text-gray-400">
               {currentSlide.description.map((line, i) => (
                 <p key={i}>{line}</p>
               ))}

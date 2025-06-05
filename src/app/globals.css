@@ -54,3 +54,48 @@ html {
 .ant-steps-item-title {
   color: white !important;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease forwards;
+}
+/* Hide scrollbar for thumbnails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Vanta JS canvas elementini vertical center qilish uchun */
+canvas {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  transform: translateY(-50%) !important;
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+/* fonts */
+.font-roboto {
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Edu QLD Hand", cursive; */
+  /* font-family: "Gabarito", sans-serif; */
+
+  font-family: "Fugaz One", sans-serif;
+
+  font-weight: 900;
+}

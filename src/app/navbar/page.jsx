@@ -37,13 +37,13 @@ function Navbar() {
       <div className="max-w-[1342px] mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <Link href="/" className="flex items-center space-x-2">
-          <h2 className="text-[32px] text-[rgba(2,224,61,1)] font-extrabold leading-none">
+          <h2 className="text-[32px] text-[rgba(2,224,61,1)] font-sans font-extrabold leading-none">
             Freva
           </h2>
         </Link>
 
         {/* Nav Links */}
-        <nav className="hidden md:flex gap-10 items-center">
+        <nav className="hidden md:flex gap-10 items-center font-sans">
           <Link href="/" className={linkClass("/")}>
             Asosiy
           </Link>
@@ -63,7 +63,7 @@ function Navbar() {
           <Link href="/order">
             <button
               type="button"
-              className="transition-all bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer duration-200 text-white font-semibold text-sm md:text-base px-6 py-2.5 rounded-full shadow hover:shadow-lg"
+              className="transition-all font-sans bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer duration-200 text-white font-semibold text-sm md:text-base px-6 py-2.5 rounded-full shadow hover:shadow-lg"
             >
               Buyurtma berish
             </button>

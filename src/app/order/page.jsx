@@ -126,13 +126,13 @@ function Page() {
               transition={{ duration: 0.5 }}
               className="absolute max-w-md text-left top-0 left-8"
             >
-              <h2 className="text-3xl font-bold text-white mb-4 leading-snug">
+              <h2 className="text-3xl font-[700] font-sans text-white mb-4 leading-snug  ">
                 {currentSlide.title}{" "}
                 <span className="text-[#02E03D]">{currentSlide.highlight}</span>
               </h2>
-              <div className="mb-3 space-y-1">
+              <div className="mb-3">
                 {currentSlide.description.map((desc, i) => (
-                  <p key={i} className="text-gray-300  text-base">
+                  <p key={i} className="text-gray-400  font-[500]">
                     {desc}
                   </p>
                 ))}
