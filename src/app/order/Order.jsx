@@ -53,7 +53,7 @@ export default function OrderPage() {
   const prev = () => setCurrent(current - 1);
 
   const BOT_TOKEN = "7831806767:AAEdwbQjeQyvcF2NNLzWAn1DonNNy4FxUzY";
-  const CHAT_ID = "-1002685091196"; // Guruh chat IDsi
+  const CHAT_ID = "5941617229"; // Guruh chat IDsi
 
   const sendMessageToTelegram = async (text) => {
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
