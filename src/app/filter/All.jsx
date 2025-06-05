@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Pagination } from "antd";
 import "antd/dist/reset.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -11,12 +10,10 @@ import Link from "next/link";
 
 function All() {
   const [data, setData] = useState([]);
-  const [current, setCurrent] = useState(1);
-  const cardsPerPage = 6;
+  const [visibleCount, setVisibleCount] = useState(9); // dastlab 9 ta card ko'rsatamiz
 
-  // Har safar sahifa o'zgarganda animatsiyani ishga tushirish uchun
   const { ref, inView } = useInView({
-    triggerOnce: false, // har safar ko‘ringanda ishga tushadi
+    triggerOnce: false,
     threshold: 0.2,
   });
 
@@ -26,15 +23,6 @@ function All() {
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   }, []);
-
-  const indexOfLastCard = current * cardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = data.slice(indexOfFirstCard, indexOfLastCard);
-
-  const onChange = (page) => {
-    setCurrent(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const containerVariants = {
     hidden: {},
@@ -54,18 +42,23 @@ function All() {
     },
   };
 
+  const visibleData = data.slice(0, visibleCount);
+  const showMoreAvailable = visibleCount < data.length;
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 9);
+  };
+
   return (
-    <div className="container mx-auto">
-      {/* Card container */}
+    <div className="container mx-auto px-4 py-10">
       <motion.div
         ref={ref}
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        key={current} // sahifa o‘zgarganda qayta animatsiya
       >
-        {currentCards.map((card, index) => (
+        {visibleData.map((card, index) => (
           <motion.div
             key={index}
             className="h-[260px] w-full cursor-pointer rounded-lg overflow-hidden shadow-lg relative group"
@@ -78,6 +71,7 @@ function All() {
                 style={{ backgroundPosition: "left top" }}
               />
             </Link>
+
             <div
               style={{
                 borderRadius: "200px 0 0 0",
@@ -85,7 +79,7 @@ function All() {
               }}
               className="absolute bottom-0 right-0 bg-black/60 backdrop-blur-md h-[140px] w-[270px] text-left"
             >
-              <h2 className="font-bold text-xl text-orange-400 font-sans">
+              <h2 className="font-bold text-xl text-orange-400">
                 {card.title}
               </h2>
               <p className="text-sm text-gray-300 mt-1 mb-1">Web UI</p>
@@ -95,16 +89,16 @@ function All() {
         ))}
       </motion.div>
 
-      {/* Pagination */}
-      <div className="flex justify-center mt-10">
-        <Pagination
-          current={current}
-          onChange={onChange}
-          total={data.length}
-          pageSize={cardsPerPage}
-          showSizeChanger={false}
-        />
-      </div>
+      {showMoreAvailable && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={handleShowMore}
+            className="px-6 py-3 bg-gradient-to-r from-[#0c8932] to-[#29CA59] text-white rounded-md hover:bg-orange-600 transition"
+          >
+            Ko'proq ko'rsatish
+          </button>
+        </div>
+      )}
     </div>
   );
 }

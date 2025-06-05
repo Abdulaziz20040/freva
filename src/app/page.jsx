@@ -3,11 +3,12 @@
 import React, { useEffect } from "react";
 import Slider from "./slider/page";
 import Filter from "./filter/page";
-import Comments from "./comments/page";
 import Footer from "./footer/page";
 import Navbar from "./navbar/page";
 import "./globals.css";
 import Communication from "./communication/page";
+import Group from "./group/page";
+import "react-toastify/dist/ReactToastify.css";
 
 function Page() {
   // useEffect(() => {
@@ -26,13 +27,15 @@ function Page() {
   // }, []);
 
   return (
-    <div className="mt-3 containes">
-      <Navbar />
-      <Slider />
-      <Communication />
-      <Filter />
-      <Comments />
-      <Footer />
+    <div>
+      <div className="mt-3 containes">
+        <Navbar />
+        <Slider />
+        <Filter />
+        <Group />
+        <Communication />
+        <Footer />
+      </div>
     </div>
   );
 }

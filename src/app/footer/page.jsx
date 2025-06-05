@@ -7,7 +7,6 @@ function Footer() {
       <div className="flex justify-between mt-20">
         <div>
           <p className="font-semibold text-[20px]">Freva</p>
-          <img src="" alt="" />
         </div>
         <div>
           <p className="font-semibold text-[20px]">Telefon Raqam</p>

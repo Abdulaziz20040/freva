@@ -72,19 +72,18 @@ function Filter() {
   };
 
   return (
-    <div className=" mt-26">
+    <div className=" mt-20">
       <div className="flex items-center gap-4">
-        <button className=" bg-[#02E03D] w-[10px] h-[35px] rounded-[12px]"></button>
         <h1
           style={{
             fontWeight: "bold",
           }}
-          className=" text-[30px] pt-[19px]"
+          className=" text-[25px] pt-[px]"
         >
           Loyihalarimiz
         </h1>
       </div>
-      <div className="flex flex-col items-center w-full mt-10">
+      <div className="flex flex-col items-center w-full mt-6">
         <div
           ref={scrollRef}
           className="flex gap-5 overflow-x-auto no-scrollbar scroll-smooth w-full max-w-[100%]"
