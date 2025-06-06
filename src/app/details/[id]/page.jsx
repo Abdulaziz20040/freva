@@ -101,6 +101,18 @@ function Details() {
               ))}
             </div>
           </div>
+          {product.url && (
+            <div className="mt-6">
+              <a
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-[rgba(2,224,61,1)] text-[#ffffff] font-semibold rounded-xl shadow-lg hover:bg-white hover:text-[#006b24] transition-colors duration-300"
+              >
+                Loyihani ko‘rish
+              </a>
+            </div>
+          )}
 
           <div>
             <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
