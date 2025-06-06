@@ -40,14 +40,14 @@ function Details() {
       }}
     >
       {/* TOP SECTION */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
         {/* IMAGES */}
-        <div className="space-y-6">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
           <div className="bg-[#12163d] p-4 md:p-6 rounded-3xl shadow-2xl">
             <img
               src={selectedImage}
               alt={product.title}
-              className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-contain rounded-2xl cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-in-out"
+              className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-contain rounded-2xl cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-in-out"
               loading="lazy"
             />
           </div>
@@ -60,7 +60,7 @@ function Details() {
                   alt={`Thumbnail ${idx + 1}`}
                   loading="lazy"
                   onClick={() => setSelectedImage(thumb)}
-                  className={`min-w-[80px] h-20 object-cover rounded-xl border-2 cursor-pointer transition-all duration-300 shadow-md hover:scale-105 ${
+                  className={`min-w-[80px] h-20 sm:min-w-[100px] sm:h-24 object-cover rounded-xl border-2 cursor-pointer transition-all duration-300 shadow-md hover:scale-105 ${
                     selectedImage === thumb
                       ? "border-[rgba(2,224,61,1)] scale-105"
                       : "border-transparent"
@@ -71,7 +71,7 @@ function Details() {
         </div>
 
         {/* DETAILS */}
-        <div className="flex flex-col justify-center space-y-6 md:space-y-8">
+        <div className="flex flex-col justify-center space-y-6 md:space-y-8 lg:space-y-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgba(2,224,61,1)] break-words">
             {product.title}
           </h2>
@@ -101,38 +101,81 @@ function Details() {
               ))}
             </div>
           </div>
-          {product.url && (
-            <div className="mt-6">
-              <a
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-[rgba(2,224,61,1)] text-[#ffffff] font-semibold rounded-xl shadow-lg hover:bg-white hover:text-[#006b24] transition-colors duration-300"
-              >
-                Loyihani ko‘rish
-              </a>
-            </div>
-          )}
 
-          <div>
-            <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
-              Loyihaning davomiyligi
-            </h4>
-            <div className="flex flex-col md:flex-row gap-6 text-sm sm:text-base">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-20">
+            <div className="flex flex-col gap-5">
+              {product.url && (
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 bg-[rgba(2,224,61,1)] text-[#ffffff] font-semibold rounded-xl shadow-lg hover:bg-white hover:text-[#006b24] transition-colors duration-300"
+                  >
+                    Loyihani ko‘rish
+                  </a>
+                  {product.repository && (
+                    <a
+                      href={product.repository}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-6 py-3 bg-gray-700 text-white font-semibold rounded-xl shadow-lg hover:bg-gray-600 transition-colors duration-300"
+                    >
+                      Kod manbasi
+                    </a>
+                  )}
+                </div>
+              )}
+
               <div>
-                <p className="uppercase text-gray-400 font-medium">
-                  Boshlangan sana
-                </p>
-                <p className="text-lg">
-                  {product.started?.substring(0, 10) || "Noma'lum"}
-                </p>
+                <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
+                  Loyihaning davomiyligi
+                </h4>
+                <div className="flex flex-col sm:flex-row gap-6 text-sm sm:text-base">
+                  <div>
+                    <p className="uppercase text-gray-400 font-medium">
+                      Boshlangan sana
+                    </p>
+                    <p className="text-lg">
+                      {product.started?.substring(0, 10) || "Noma'lum"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="uppercase text-gray-400 font-medium">
+                      Tugagan sana
+                    </p>
+                    <p className="text-lg">
+                      {product.ended?.substring(0, 10) || "Noma'lum"}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="uppercase text-gray-400 font-medium">
-                  Tugagan sana
+            </div>
+
+            <div>
+              <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
+                Qo‘shimcha ma’lumotlar
+              </h4>
+              <div className=" flex flex-col gap-3">
+                <p>
+                  <span className="font-semibold">Client:</span>{" "}
+                  {product.client || "Noma'lum"}
                 </p>
-                <p className="text-lg">
-                  {product.ended?.substring(0, 10) || "Noma'lum"}
+                <p>
+                  <span className="font-semibold">Byudjet:</span>{" "}
+                  {product.budget || "Noma'lum"}
+                </p>
+                <p>
+                  <span className="font-semibold">Holat:</span>{" "}
+                  {product.status || "Noma'lum"}
+                </p>
+                <p>
+                  <span className="font-semibold">Kategoriya:</span>{" "}
+                  {product.category || "Noma'lum"}
+                </p>
+                <p>
+                  <span className="font-semibold">Kategoriya (Tags):</span>{" "}
+                  {product.categories?.join(", ") || "Noma'lum"}
                 </p>
               </div>
             </div>
@@ -141,7 +184,7 @@ function Details() {
       </div>
 
       {/* FOOTER / BOTTOM SECTION */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-white text-base border-t border-[rgba(2,224,61,1)] pt-12">
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-white text-base border-t border-[rgba(2,224,61,1)] pt-12">
         {/* 1 - Yo‘nalishlar */}
         <div className="space-y-4">
           <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
@@ -172,39 +215,32 @@ function Details() {
             Texnik ma’lumotlar
           </h4>
           <p>
-            {product.sizes
-              ? `Mos o‘lchamlar: ${product.sizes.join(", ")}`
-              : "Mos o‘lchamlar mavjud emas"}
+            {product.categories
+              ? `Yo‘nalishlar: ${product.categories.join(", ")}`
+              : "Yo‘nalishlar mavjud emas"}
           </p>
           <p>
             Boshlangan:{" "}
-            <span className="text-[rgba(2,224,61,1)]">
-              {product.started?.substring(0, 10) || "Noma’lum"}
+            <span className="font-semibold">
+              {product.started?.substring(0, 10) || "Noma'lum"}
             </span>
           </p>
           <p>
             Tugagan:{" "}
-            <span className="text-[rgba(2,224,61,1)]">
-              {product.ended?.substring(0, 10) || "Noma’lum"}
+            <span className="font-semibold">
+              {product.ended?.substring(0, 10) || "Noma'lum"}
             </span>
           </p>
         </div>
 
-        {/* 4 - Hamkorlik */}
+        {/* 4 - Kontaktlar */}
         <div className="space-y-4">
           <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
-            Hamkorlik va buyurtmalar
+            Kontaktlar
           </h4>
-          <p>
-            30 kunlik kafolat. Maxsus takliflar va chegirmalar. <br />
-            Talabalar uchun alohida narxlar.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block mt-3 px-5 py-2 bg-[rgba(2,224,61,1)] text-[#0a0b2a] rounded-xl font-semibold transition hover:bg-white hover:text-[#0a0b2a]"
-          >
-            Buyurtma berish
-          </a>
+          <p>Email: info@example.com</p>
+          <p>Telefon: +998 90 123 45 67</p>
+          <p>Manzil: Toshkent, O‘zbekiston</p>
         </div>
       </div>
     </div>
