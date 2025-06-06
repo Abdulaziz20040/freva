@@ -28,7 +28,7 @@ function Page() {
 
   return (
     <div>
-      <div className="mt-3 containes">
+      <div className="mt-3 containes ">
         <Navbar />
         <Slider />
         <Filter />
