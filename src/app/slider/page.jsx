@@ -121,7 +121,7 @@ const Slider = () => {
   const currentSlide = sliderData[index];
 
   return (
-    <div className="relative w-full min-h-[450px] mt-10 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden">
+    <div className="relative w-full min-h-[450px] mt-14 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
