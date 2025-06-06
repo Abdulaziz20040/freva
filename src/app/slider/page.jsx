@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FiFolder, FiSearch } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
+import { FaFolder } from "react-icons/fa";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import image from "../../../img/1.png";
 import "../globals.css";
-import { FaFolder } from "react-icons/fa";
 
 const sliderData = [
   {
@@ -21,6 +21,7 @@ const sliderData = [
     projectsCount: "10.5K",
     badgeText: "Loyihalar",
     featureText: "Tez va mukammal natija",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
   {
     title: "Biznesingiz uchun zamonaviy raqamli yechimlar",
@@ -34,6 +35,7 @@ const sliderData = [
     projectsCount: "8.2K",
     badgeText: "Yakunlangan loyihalar",
     featureText: "Innovatsion xizmatlar",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
   {
     title: "Portfolio va brendingizni mukammal qiling",
@@ -46,6 +48,7 @@ const sliderData = [
     projectsCount: "6.7K",
     badgeText: "Yakunlangan ishlanmalar",
     featureText: "Kreativ va ta'sirchan dizayn",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
   {
     title: "Mobil ilovalarni ishlab chiqish endi oson",
@@ -58,6 +61,7 @@ const sliderData = [
     projectsCount: "4.9K",
     badgeText: "Mobil Loyihalar",
     featureText: "Platformalararo echimlar",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
   {
     title: "UI/UX dizayn orqali mijozlarni jalb qiling",
@@ -70,6 +74,7 @@ const sliderData = [
     projectsCount: "3.3K",
     badgeText: "Dizayn ishlari",
     featureText: "Estetik va foydali interfeyslar",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
   {
     title: "Freva bilan marketing strategiyangizni kuchaytiring",
@@ -82,26 +87,20 @@ const sliderData = [
     projectsCount: "5.6K",
     badgeText: "Marketing loyihalari",
     featureText: "Natijaga yo‘naltirilgan xizmat",
+    img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
 ];
-
 const variants = {
-  initial: { x: 100, opacity: 0 }, // O‘ngdan 100px tashqarida va ko‘rinmas
+  initial: { x: 100, opacity: 0 },
   animate: {
     x: 0,
     opacity: 1,
-    transition: {
-      duration: 1, // 1 soniya davomida
-      ease: "easeOut",
-    },
+    transition: { duration: 1, ease: "easeOut" },
   },
   exit: {
-    x: -100, // Chap tomonga 100px siljish
+    x: -100,
     opacity: 0,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-    },
+    transition: { duration: 1, ease: "easeOut" },
   },
 };
 
@@ -111,20 +110,18 @@ const Slider = () => {
 
   useEffect(() => {
     let interval;
-
     if (searchTerm.trim() === "") {
       interval = setInterval(() => {
         setIndex((prev) => (prev + 1) % sliderData.length);
       }, 10000);
     }
-
     return () => clearInterval(interval);
   }, [searchTerm]);
 
   const currentSlide = sliderData[index];
 
   return (
-    <div className="relative mt-25 w-full min-h-[550px] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-[450px] mt-10 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -132,11 +129,11 @@ const Slider = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col md:flex-row items-center justify-between gap-6 w-full"
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-10 w-full max-w-7xl"
         >
-          {/* Chap qism */}
-          <div className="flex-1 space-y-5 max-w-[600px]">
-            <h1 className="text-4xl md:text-[40px] font-roboto font-bold leading-snug text-white">
+          {/* Left Side */}
+          <div className="flex-1 space-y-4">
+            <h1 className="text-lg sm:text-2xl md:text-[40px] font-[900] font-sans leading-snug text-white break-words whitespace-normal">
               {currentSlide.title}{" "}
               <span
                 style={{
@@ -144,66 +141,50 @@ const Slider = () => {
                     "linear-gradient(93.59deg, #1ECC52 36.79%, #29CA59 77.82%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  display: "inline-block",
                 }}
               >
                 {currentSlide.highlight}
               </span>
             </h1>
 
-            <div className=" text-[rgba(79, 79, 79, 1)] font-[500]  text-gray-400">
+            <div className="text-gray-400 space-y-1 break-words whitespace-normal">
               {currentSlide.description.map((line, i) => (
-                <p key={i}>{line}</p>
+                <p
+                  key={i}
+                  className="text-xs sm:text-sm md:text-base break-words whitespace-normal"
+                >
+                  {line}
+                </p>
               ))}
             </div>
 
-            <div
-              style={{
-                background:
-                  "linear-gradient(93.59deg, #1ECC52 36.79%, #29CA59 77.82%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-              className="flex flex-wrap gap-3 pt-3 font-bold "
-            >
+            <div className="flex flex-wrap gap-3 pt-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1ECC52] to-[#29CA59]">
               {currentSlide.tags.map((tag, i) => (
                 <span key={i}>{tag}</span>
               ))}
             </div>
 
-            <div className="flex items-center bg-white shadow-md rounded-full mt-5 p-2 w-full max-w-md">
-              <FiSearch className="text-[rgba(2,224,61,1)] text-[25px] ml-3 p-1 rounded" />
-
+            <div className="flex items-center bg-white shadow-md rounded-full px-2 py-1 w-full max-w-md mt-3 text-xs sm:text-sm">
+              <FiSearch className="text-[#02E03D] text-lg sm:text-xl ml-2" />
               <input
                 type="text"
                 placeholder="Qidirish"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-grow px-3 py-2 text-black placeholder-gray-400 outline-none rounded-full"
+                className="flex-grow px-2 py-1 text-black placeholder-gray-400 outline-none text-xs sm:text-sm bg-transparent"
               />
-
-              <button className="bg-gradient-to-r from-[#1ECC52] to-[#29CA59] cursor-pointer text-white font-semibold px-6 py-2 rounded-full transition-transform duration-300 ease-in-out hover:-translate-y-1">
+              <button className="bg-gradient-to-r from-[#1ECC52] to-[#29CA59] text-white text-xs sm:text-sm font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full hover:-translate-y-1 transition">
                 Qidirish
               </button>
             </div>
           </div>
 
-          {/* O‘ng qism */}
-          <div className="relative flex-1 flex justify-center items-center min-h-[300px]">
-            <button
-              className="
-    absolute top-0 right-5 
-    bg-[rgba(255,253,253,0.6)] backdrop-blur-[10.5px] 
-    shadow-md rounded-xl p-3 
-    flex items-center gap-2 cursor-pointer
-    transform transition-transform duration-500 ease-in-out
-    hover:-translate-y-2 hover:shadow-lg hover:scale-[1.05]
-    focus:outline-none
-  "
-            >
+          {/* Right Side */}
+          <div className="relative flex-1 flex justify-center items-center min-h-[250px] sm:min-h-[300px] hidden sm:flex">
+            <button className="absolute top-0 right-5 bg-white/60 backdrop-blur-md shadow-md rounded-xl p-3 flex items-center gap-2 hover:scale-105 hover:shadow-lg transition">
               <div>
-                <div className="text-lg font-semibold flex items-center gap-3 justify-center">
-                  <FaFolder className="text-2xl text-[#3B82F6]" />
+                <div className="text-base md:text-lg font-semibold flex items-center gap-2">
+                  <FaFolder className="text-xl text-[#3B82F6]" />
                   {currentSlide.projectsCount}
                 </div>
                 <div className="text-sm text-white">
@@ -212,25 +193,15 @@ const Slider = () => {
               </div>
             </button>
 
-            <Image
-              src={image}
+            <img
+              src={currentSlide.img}
               alt="Slider image"
-              width={500}
-              height={500}
-              className="rounded-lg z-10"
+              width={400}
+              height={400}
+              className="rounded-lg z-10 w-full max-w-[300px] sm:max-w-[400px] object-contain"
             />
-            <div
-              className="
-    absolute w-[180px] h-[100px] text-center z-10 bottom-20 left-10 
-    bg-[rgba(255,253,253,0.6)] 
-    shadow-[0px_5px_10px_0px_rgba(51,48,48,0.25)] 
-    backdrop-blur-[10.5px] rounded-xl p-3 
-    flex flex-col items-center justify-center gap-2 
-    transform transition-transform duration-300 ease-in-out
-    hover:-translate-y-2 hover:shadow-lg hover:scale-[1.05]
-    cursor-pointer
-  "
-            >
+
+            <div className="absolute bottom-8 left-4 sm:left-10 w-[140px] h-[80px] bg-white/60 text-center z-10 shadow-md backdrop-blur-md rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:scale-105 hover:shadow-lg transition">
               <div className="text-xl text-orange-400">⚡</div>
               <div className="text-sm text-white">
                 {currentSlide.featureText}
@@ -240,8 +211,8 @@ const Slider = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Nuqtalar */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2">
+      {/* Dots */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
         {sliderData.map((_, i) => (
           <div
             key={i}

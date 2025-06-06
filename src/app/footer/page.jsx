@@ -3,32 +3,35 @@ import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 
 function Footer() {
   return (
-    <>
-      <div className="flex justify-between mt-20">
-        <div>
-          <p className="font-semibold text-[20px]">Freva</p>
+    <footer className="w-full  text-white px-6 py-10">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-0">
+        <div className="flex flex-col items-center sm:items-start">
+          <p className="font-semibold text-xl">Freva</p>
         </div>
-        <div>
-          <p className="font-semibold text-[20px]">Telefon Raqam</p>
-          <p>+998 90 932 21 22</p>
+
+        <div className="flex flex-col items-center sm:items-start">
+          <p className="font-semibold text-xl">Telefon Raqam</p>
+          <p className="mt-1">+998 90 932 21 22</p>
         </div>
-        <div className="flex justify-evenly gap-20 text-[24px] ">
-          <a href="#" className="cursor-pointer">
+
+        <div className="flex justify-center sm:justify-start gap-8 text-2xl text-white">
+          <a href="#" className="cursor-pointer hover:text-blue-400 transition">
             <FaTelegram />
           </a>
-          <a href="#" className="cursor-pointer">
+          <a href="#" className="cursor-pointer hover:text-pink-500 transition">
             <FaInstagram />
           </a>
-          <a href="#" className="cursor-pointer">
+          <a href="#" className="cursor-pointer hover:text-red-600 transition">
             <FaYoutube />
           </a>
         </div>
-        <div>
-          <p className="font-semibold text-[20px]">Elektron pochtamiz</p>
-          <p>freva@gmail.com</p>
+
+        <div className="flex flex-col items-center sm:items-start">
+          <p className="font-semibold text-xl">Elektron pochtamiz</p>
+          <p className="mt-1">freva@gmail.com</p>
         </div>
       </div>
-    </>
+    </footer>
   );
 }
 

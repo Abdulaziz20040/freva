@@ -99,7 +99,7 @@ function Page() {
   const currentSlide = motivatsionSozlar[currentIndex];
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex flex-col md:flex-row min-h-screen bg-white">
       {/* Chap yarim - Slider */}
       <div
         style={{
@@ -107,16 +107,16 @@ function Page() {
           background:
             "linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%)",
         }}
-        className="w-[50%]  p-12 relative flex items-center justify-start shadow-lg shadow-gray-400/20"
+        className="w-full md:w-1/2 p-6 md:p-12 relative flex items-center justify-start shadow-lg shadow-gray-400/20"
       >
         {/* Orqaga qaytish icon */}
         <Link href="/">
-          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#02E03D] hover:-translate-x-2">
+          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#02E03D] hover:-translate-x-2 z-10">
             <AiOutlineDoubleLeft />
           </button>
         </Link>
 
-        <div className="w-full relative h-[300px]">
+        <div className="w-full relative h-[300px] md:h-[350px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -124,21 +124,24 @@ function Page() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="absolute max-w-md text-left top-0 left-8"
+              className="absolute max-w-md text-left top-0 left-8 md:left-12"
             >
-              <h2 className="text-3xl font-[700] font-sans text-white mb-4 leading-snug  ">
+              <h2 className="text-2xl md:text-3xl font-[700] font-sans text-white mb-4 leading-snug">
                 {currentSlide.title}{" "}
                 <span className="text-[#02E03D]">{currentSlide.highlight}</span>
               </h2>
               <div className="mb-3">
                 {currentSlide.description.map((desc, i) => (
-                  <p key={i} className="text-gray-400  font-[500]">
+                  <p
+                    key={i}
+                    className="text-gray-400 font-[500] text-sm md:text-base"
+                  >
                     {desc}
                   </p>
                 ))}
               </div>
 
-              <p className="mt-4 text-sm text-[#02E03D]">
+              <p className="mt-4 text-xs md:text-sm text-[#02E03D]">
                 {currentSlide.projectsCount}+ {currentSlide.badgeText}
               </p>
             </motion.div>
@@ -147,7 +150,7 @@ function Page() {
       </div>
 
       {/* O'ng yarim - OrderPage */}
-      <div className="w-[55%]">
+      <div className="w-full md:w-[55%] min-h-[400px] md:min-h-full">
         <OrderPage />
       </div>
     </div>

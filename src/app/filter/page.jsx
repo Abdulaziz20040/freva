@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-
-// ICONLAR
 import { FaMobileAlt, FaPaintBrush, FaBrain } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { MdSecurity } from "react-icons/md";
 import { SiSpring } from "react-icons/si";
+
 import MobileContent from "./MobileContent ";
 import UIDesignContent from "./UIDesignContent ";
 import BackendContent from "./BackendContent ";
@@ -15,7 +14,7 @@ import All from "./All";
 
 const filters = [
   {
-    icon: <BiCodeAlt />, // kerak bo‘lsa boshqa ikonaga almashtiring
+    icon: <BiCodeAlt />,
     label: "Barcha Loyihalar",
     component: <All />,
   },
@@ -59,7 +58,7 @@ function Filter() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    const buttonWidth = 320; // button eni + gap
+    const buttonWidth = 320;
     const containerWidth = scrollContainer.offsetWidth;
 
     const scrollPosition =
@@ -72,25 +71,17 @@ function Filter() {
   };
 
   return (
-    <div className=" mt-20">
+    <div className="mt-10 md:mt-20 px-4">
       <div className="flex items-center gap-4">
-        <h1
-          style={{
-            fontWeight: "bold",
-          }}
-          className=" text-[25px] pt-[px]"
-        >
+        <h1 className="text-xl md:text-2xl lg:text-[25px] font-bold">
           Loyihalarimiz
         </h1>
       </div>
+
       <div className="flex flex-col items-center w-full mt-6">
         <div
           ref={scrollRef}
-          className="flex gap-5 overflow-x-auto no-scrollbar scroll-smooth w-full max-w-[100%]"
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
+          className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar scroll-smooth w-full"
         >
           {filters.map((item, index) => {
             const isActive = index === activeIndex;
@@ -101,7 +92,8 @@ function Filter() {
                   setActiveIndex(index);
                   scrollToIndex(index);
                 }}
-                className={`flex items-center gap-4 cursor-pointer px-6 py-5 rounded-[15px] transition-all duration-300 w-[350px] h-[100px] flex-shrink-0 select-none
+                className={`flex items-center gap-3 cursor-pointer px-4 md:px-6 py-4 md:py-5 rounded-[15px] transition-all duration-300 
+                min-w-[70%] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[350px] h-[90px] md:h-[100px] flex-shrink-0 select-none 
                 ${isActive ? "text-white" : "text-[#0c8932]"}`}
                 style={{
                   background: isActive
@@ -114,17 +106,15 @@ function Filter() {
                 }}
               >
                 <span
-                  className={`text-2xl ${
+                  className={`text-xl md:text-2xl ${
                     isActive ? "text-white" : "text-[#0c8932]"
                   }`}
                 >
                   {item.icon}
                 </span>
                 <span
-                  className={`text-sm font-semibold text-left leading-tight flex-1 text-[#0c8932]`}
-                  style={{
-                    color: isActive ? "white" : "#0c8932",
-                  }}
+                  className={`text-xs sm:text-sm md:text-base font-semibold text-left leading-tight flex-1`}
+                  style={{ color: isActive ? "white" : "#0c8932" }}
                 >
                   {item.label}
                 </span>
@@ -133,7 +123,9 @@ function Filter() {
           })}
         </div>
 
-        <div className="w-full mt-10">{filters[activeIndex].component}</div>
+        <div className="w-full mt-8 md:mt-10">
+          {filters[activeIndex].component}
+        </div>
       </div>
     </div>
   );
