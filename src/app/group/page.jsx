@@ -28,11 +28,18 @@ function Group() {
               className="min-w-[160px] flex-shrink-0 flex flex-col items-center"
             >
               {/* Aylana shaklidagi rasm */}
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-32 h-32 rounded-full object-cover mb-4"
-              />
+              {item.img ? (
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-32 h-32 rounded-full object-cover mb-4"
+                />
+              ) : (
+                <div className="w-32 h-32 rounded-full bg-white/10 border border-[rgba(2,224,61,0.4)] flex items-center justify-center text-4xl font-bold text-white mb-4">
+                  {item.name?.charAt(0).toUpperCase()}
+                </div>
+              )}
+
               {/* Ism */}
               <h1 className="font-semibold text-lg text-gray-800 text-center">
                 {item.name}

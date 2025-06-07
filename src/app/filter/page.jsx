@@ -38,16 +38,6 @@ const filters = [
     label: "Web Dasturlash",
     component: <WebContent />,
   },
-  {
-    icon: <FaBrain />,
-    label: "AI / ML",
-    component: <div>AI / ML Content</div>,
-  },
-  {
-    icon: <MdSecurity />,
-    label: "Cybersecurity",
-    component: <div>Cybersecurity Content</div>,
-  },
 ];
 
 function Filter() {

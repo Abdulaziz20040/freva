@@ -42,15 +42,16 @@ function Details() {
       {/* TOP SECTION */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
         {/* IMAGES */}
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-          <div className="bg-[#12163d] p-4 md:p-6 rounded-3xl shadow-2xl">
-            <img
-              src={selectedImage}
-              alt={product.title}
-              className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-contain rounded-2xl cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-in-out"
-              loading="lazy"
-            />
-          </div>
+        <div className=" rounded-3xl shadow-2xl">
+          <img
+            style={{
+              borderRadius: "40px",
+            }}
+            src={selectedImage}
+            alt={product.title}
+            className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-contain  cursor-pointer hover:scale-[1.03] transition-transform duration-500 ease-in-out"
+            loading="lazy"
+          />
           <div className="flex gap-3 sm:gap-4 items-center overflow-x-auto no-scrollbar px-2">
             {Array.isArray(product.img) &&
               product.img.map((thumb, idx) => (
@@ -72,12 +73,12 @@ function Details() {
 
         {/* DETAILS */}
         <div className="flex flex-col justify-center space-y-6 md:space-y-8 lg:space-y-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgba(2,224,61,1)] break-words">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgba(2,224,61,1)] break-words mb-4">
             {product.title}
           </h2>
 
           <p
-            className="leading-relaxed text-white cursor-pointer text-base sm:text-lg"
+            className="leading-relaxed text-white cursor-pointer text-base sm:text-lg mb-6"
             onClick={() => setTruncateText(!truncateText)}
           >
             <span className="text-[rgba(2,224,61,1)] font-semibold mr-2">
@@ -103,9 +104,9 @@ function Details() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-10 md:gap-20">
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-7">
               {product.url && (
-                <div className="mt-6 flex flex-wrap gap-4">
+                <div className="mt-6 flex flex-wrap  gap-6">
                   <a
                     href={product.url}
                     target="_blank"
@@ -238,8 +239,10 @@ function Details() {
           <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
             Kontaktlar
           </h4>
-          <p>Email: info@example.com</p>
-          <p>Telefon: +998 90 123 45 67</p>
+          <a href="https://t.me/freva_manager">
+            <p>Teligram: freva_manager</p>
+          </a>
+          <p>Telefon: +998 77 014 50 47</p>
           <p>Manzil: Toshkent, O‘zbekiston</p>
         </div>
       </div>

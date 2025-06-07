@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaTelegramPlane, FaEye } from "react-icons/fa";
 
@@ -24,12 +25,16 @@ export default function About() {
               </span>
             </p>
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
-              <button className="px-6 py-3 text-[16px] font-semibold bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer rounded-full shadow-md hover:bg-blue-700 hover:text-white transition-all flex items-center gap-2">
-                <FaTelegramPlane /> Biz bilan bog‘lanish
-              </button>
-              <button className="px-6 py-3 text-[16px] font-semibold bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
-                <FaEye /> Loyihalarni ko‘rish
-              </button>
+              <a href="https://t.me/freva_manager">
+                <button className="px-6 py-3 text-[16px] font-semibold bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer rounded-full shadow-md hover:bg-blue-700 hover:text-white transition-all flex items-center gap-2">
+                  <FaTelegramPlane /> Biz bilan bog‘lanish
+                </button>
+              </a>
+              <Link href={"/"}>
+                <button className="px-6 py-3 text-[16px] font-semibold bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
+                  <FaEye /> Loyihalarni ko‘rish
+                </button>
+              </Link>
             </div>
           </div>
           <div className="hidden md:block flex-1">

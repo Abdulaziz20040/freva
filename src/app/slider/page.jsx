@@ -18,7 +18,7 @@ const sliderData = [
       "Mos xizmatni tanlang, biz tez va sifatli yakunlaymiz!",
     ],
     tags: ["Web Dizayn", "UI/UX Dizayner", "Frontend"],
-    projectsCount: "10.5K",
+    projectsCount: "500+",
     badgeText: "Loyihalar",
     featureText: "Tez va mukammal natija",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -32,7 +32,7 @@ const sliderData = [
       "Ishonchli va tezkor yechimlar bilan ishlaymiz.",
     ],
     tags: ["Backend", "Mobil Ilovalar", "CRM"],
-    projectsCount: "8.2K",
+    projectsCount: "200+",
     badgeText: "Yakunlangan loyihalar",
     featureText: "Innovatsion xizmatlar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -45,7 +45,7 @@ const sliderData = [
       "Portfoliongizni professional tarzda yarating.",
     ],
     tags: ["Grafik Dizayn", "Branding", "Portfolio"],
-    projectsCount: "6.7K",
+    projectsCount: "600+",
     badgeText: "Yakunlangan ishlanmalar",
     featureText: "Kreativ va ta'sirchan dizayn",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -58,7 +58,7 @@ const sliderData = [
       "Ilovalaringizni foydalanuvchilarga qulay qiling.",
     ],
     tags: ["React Native", "Flutter", "iOS/Android"],
-    projectsCount: "4.9K",
+    projectsCount: "300+",
     badgeText: "Mobil Loyihalar",
     featureText: "Platformalararo echimlar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -71,7 +71,7 @@ const sliderData = [
       "UI dizayn sizning brendingizni aks ettiradi.",
     ],
     tags: ["UI/UX", "Prototyping", "Interaction"],
-    projectsCount: "3.3K",
+    projectsCount: "500+",
     badgeText: "Dizayn ishlari",
     featureText: "Estetik va foydali interfeyslar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -84,7 +84,7 @@ const sliderData = [
       "Kontent marketing, SMM, SEO va boshqalar.",
     ],
     tags: ["Marketing", "SMM", "SEO"],
-    projectsCount: "5.6K",
+    projectsCount: "400+",
     badgeText: "Marketing loyihalari",
     featureText: "Natijaga yo‘naltirilgan xizmat",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -183,7 +183,7 @@ const Slider = () => {
           <div className="relative flex-1 flex justify-center items-center min-h-[250px] sm:min-h-[300px] hidden sm:flex">
             <button className="absolute top-0 right-5 bg-white/60 backdrop-blur-md shadow-md rounded-xl p-3 flex items-center gap-2 hover:scale-105 hover:shadow-lg transition">
               <div>
-                <div className="text-base md:text-lg font-semibold flex items-center gap-2">
+                <div className="text-base md:text-lg cursor-pointer font-semibold flex items-center gap-2">
                   <FaFolder className="text-xl text-[#3B82F6]" />
                   {currentSlide.projectsCount}
                 </div>
@@ -201,7 +201,7 @@ const Slider = () => {
               className="rounded-lg z-10 w-full max-w-[300px] sm:max-w-[400px] object-contain"
             />
 
-            <div className="absolute bottom-8 left-4 sm:left-10 w-[140px] h-[80px] bg-white/60 text-center z-10 shadow-md backdrop-blur-md rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:scale-105 hover:shadow-lg transition">
+            <div className="absolute bottom-8 left-4 cursor-pointer sm:left-10 w-[140px] h-[80px] bg-white/60 text-center z-10 shadow-md backdrop-blur-md rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:scale-105 hover:shadow-lg transition">
               <div className="text-xl text-orange-400">⚡</div>
               <div className="text-sm text-white">
                 {currentSlide.featureText}

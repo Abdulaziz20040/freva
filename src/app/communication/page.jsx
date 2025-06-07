@@ -87,7 +87,7 @@ export default function Communication() {
               <FaYoutube />
             </a>
             <a
-              href="https://t.me"
+              href="https://t.me/freva_manager"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-sky-400 transition"
@@ -96,7 +96,7 @@ export default function Communication() {
             </a>
           </div>
           <div className="text-white font-semibold text-lg mt-3">
-            +998 770145047
+            +998 77 014 50 47
           </div>
         </div>
       </div>

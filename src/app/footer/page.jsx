@@ -15,7 +15,10 @@ function Footer() {
         </div>
 
         <div className="flex justify-center sm:justify-start gap-8 text-2xl text-white">
-          <a href="#" className="cursor-pointer hover:text-blue-400 transition">
+          <a
+            href="https://t.me/freva_manager"
+            className="cursor-pointer hover:text-blue-400 transition"
+          >
             <FaTelegram />
           </a>
           <a href="#" className="cursor-pointer hover:text-pink-500 transition">
@@ -28,7 +31,7 @@ function Footer() {
 
         <div className="flex flex-col items-center sm:items-start">
           <p className="font-semibold text-xl">Elektron pochtamiz</p>
-          <p className="mt-1">freva@gmail.com</p>
+          <p className="mt-1">frontenddevelopment17@gmail.com</p>
         </div>
       </div>
     </footer>

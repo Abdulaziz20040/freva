@@ -50,7 +50,7 @@ function All() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-4">
       <motion.div
         ref={ref}
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -82,8 +82,10 @@ function All() {
               <h2 className="font-bold text-xl text-orange-400">
                 {card.title}
               </h2>
-              <p className="text-sm text-gray-300 mt-1 mb-1">Web UI</p>
-              <p className="text-gray-300 text-sm">{card.desc}</p>
+              <p className="text-sm text-gray-300 mt-1 mb-1">
+                {card.categories}
+              </p>
+              {/* <p className="text-gray-300 text-sm">{card.desc}</p> */}
             </div>
           </motion.div>
         ))}
