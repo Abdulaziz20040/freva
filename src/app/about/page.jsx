@@ -50,7 +50,7 @@ export default function About() {
       {/* Stats Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center mb-20">
         {[
-          { number: "45+", label: "Yakunlangan loyihalar" },
+          { number: "500+", label: "Yakunlangan loyihalar" },
           { number: "2023", label: "Yildan beri faoliyatda" },
           { number: "100%", label: "Mijozlarimiz roziligi" },
         ].map((item, index) => (

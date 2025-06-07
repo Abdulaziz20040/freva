@@ -1,74 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const categories = ["Barchasi", "Frontend", "Backend", "Mobile"];
-const pricingData = [
-  {
-    title: "Java Backend Dasturlash",
-    category: "Backend",
-    price: "250,000 so‘m dan boshlab",
-    features: [
-      "Spring Boot & REST API",
-      "Ma’lumotlar bazasi integratsiyasi",
-      "Admin panel va autentifikatsiya",
-    ],
-  },
-  {
-    title: "Mobil Ilovalar (iOS/Android)",
-    category: "Mobile",
-    price: "300,000 so‘m dan boshlab",
-    features: [
-      "React Native yordamida",
-      "Platformalararo ilovalar",
-      "Zakaz bo‘yicha to‘liq yechim",
-    ],
-  },
-  {
-    title: "Figma Dizayn Maketlar",
-    category: "Frontend",
-    price: "120,000 so‘m dan boshlab",
-    features: [
-      "Prototiplash va dizayn loyihalash",
-      "Mobil va web versiyalar",
-      "Ishga tayyor Figma fayllar",
-    ],
-  },
-  {
-    title: "Java Backend Dasturlash",
-    category: "Backend",
-    price: "250,000 so‘m dan boshlab",
-    features: [
-      "Spring Boot & REST API",
-      "Ma’lumotlar bazasi integratsiyasi",
-      "Admin panel va autentifikatsiya",
-    ],
-  },
-  {
-    title: "Mobil Ilovalar (iOS/Android)",
-    category: "Mobile",
-    price: "300,000 so‘m dan boshlab",
-    features: [
-      "React Native yordamida",
-      "Platformalararo ilovalar",
-      "Zakaz bo‘yicha to‘liq yechim",
-    ],
-  },
-  {
-    title: "Figma Dizayn Maketlar",
-    category: "Frontend",
-    price: "120,000 so‘m dan boshlab",
-    features: [
-      "Prototiplash va dizayn loyihalash",
-      "Mobil va web versiyalar",
-      "Ishga tayyor Figma fayllar",
-    ],
-  },
-];
+const categories = ["Barchasi", "frontend", "backend", "mobile", "figma"];
 
 const Price = () => {
+  const [pricingData, setPricingData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Barchasi");
+
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
+  // API'dan malumot olish
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://177add8ca22d8b9a.mokky.dev/price"); // ← API endpoint
+        const data = await res.json();
+        setPricingData(data);
+      } catch (error) {
+        console.error("Xatolik yuz berdi:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const filteredData =
     selectedCategory === "Barchasi"
@@ -116,32 +76,50 @@ const Price = () => {
         </div>
       </div>
 
-      {/* Cards - Scrollable container */}
-      <div className="overflow-y-auto h-[413px] px-4 no-scrollbar">
+      {/* Cards */}
+      <div className=" px-4  pb-5">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
-          {filteredData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.15,
-                duration: 0.7,
-                ease: "easeOut",
-              }}
-              className="p-4 bg-white/10 border cursor-pointer border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
-            >
-              <h3 className="text-2xl font-bold text-[rgba(2,224,61,1)] mb-2">
-                {item.title}
-              </h3>
-              <p className="text-xl font-semibold mb-4">{item.price}</p>
-              <ul className="space-y-2 text-sm text-gray-300">
-                {item.features.map((feature, i) => (
-                  <li key={i}>✅ {feature}</li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          {filteredData.map((item, index) => {
+            const isExpanded = expandedIndex === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.7,
+                  ease: "easeOut",
+                }}
+                className="p-4 bg-white/10 border cursor-pointer overflow-y-auto h-[380px] no-scrollbar border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
+              >
+                <h3 className="text-2xl font-bold text-[rgba(2,224,61,1)] mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-xl font-semibold mb-4">{item.price}</p>
+
+                <ul
+                  className={`text-sm text-gray-300 space-y-2 overflow-y-auto transition-all no-scrollbar ${
+                    isExpanded ? "max-h-full" : "max-h-[200px]"
+                  }`}
+                >
+                  {item.features?.map((feature, i) => (
+                    <li key={i}>✅ {feature}</li>
+                  ))}
+                </ul>
+
+                {/* Toggle button */}
+                {item.features && item.features.length > 6 && (
+                  <button
+                    onClick={() => toggleExpand(index)}
+                    className="mt-2 text-[rgba(2,224,61,1)] underline text-sm"
+                  >
+                    {isExpanded ? "Yopish" : "Ko‘proq ko‘rish..."}
+                  </button>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>

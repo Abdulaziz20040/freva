@@ -32,7 +32,7 @@ function Group() {
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="w-32 h-32 rounded-full object-cover mb-4"
+                  className="w-32 h-32 rounded-full object-cover mb-4 border-2 border-[rgba(2,224,61,0.4)]"
                 />
               ) : (
                 <div className="w-32 h-32 rounded-full bg-white/10 border border-[rgba(2,224,61,0.4)] flex items-center justify-center text-4xl font-bold text-white mb-4">
