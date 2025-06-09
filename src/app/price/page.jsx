@@ -40,7 +40,7 @@ const Price = () => {
       {/* Title & Description */}
       <div className="flex flex-col md:flex-row items-start justify-between px-4 gap-6 mb-5">
         <div className="text-left max-w-xl">
-          <h1 className="text-[32px] md:text-[38px] text-[#3a86ff] drop-shadow-lg font-bold">
+          <h1 className="text-[32px] md:text-[38px] text-[#ffffff] drop-shadow-lg font-bold">
             Siz uchun yaxshi narxlarda eng sifatli xizmatlar!
           </h1>
           <p className="mt-4 text-[16px] text-gray-400">
@@ -85,12 +85,14 @@ const Price = () => {
                   duration: 0.7,
                   ease: "easeOut",
                 }}
-                className="p-4 bg-white/10 border cursor-pointer overflow-y-auto h-[380px] no-scrollbar border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
+                className="p-4 bg-white/10 border cursor-pointer overflow-y-auto h-[390px] no-scrollbar border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
               >
-                <h3 className="text-2xl font-bold text-[#3a86ff] mb-2">
+                <h3 className="text-2xl font-bold text-[#ffffff] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-xl font-semibold mb-4">{item.price}</p>
+                <p className="text-xl font-semibold mb-4 text-gray-300">
+                  {item.price}
+                </p>
 
                 <ul
                   className={`text-sm text-gray-300 space-y-2 overflow-y-auto transition-all no-scrollbar ${
