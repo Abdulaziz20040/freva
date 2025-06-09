@@ -104,14 +104,16 @@ function Page() {
       <div
         style={{
           borderRadius: "0 110px 110px 0",
-          background:
-            "linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%)",
+          backgroundImage: `url('https://i.ibb.co/C3j42q2C/671cf59ff59393be6e93326276503411-1.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
         className="w-full md:w-1/2 p-6 md:p-12 relative flex items-center justify-start shadow-lg shadow-gray-400/20"
       >
         {/* Orqaga qaytish icon */}
         <Link href="/">
-          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#02E03D] hover:-translate-x-2 z-10">
+          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#3a86ff] hover:-translate-x-2 z-10">
             <AiOutlineDoubleLeft />
           </button>
         </Link>
@@ -128,7 +130,7 @@ function Page() {
             >
               <h2 className="text-2xl md:text-3xl font-[700] font-sans text-white mb-4 leading-snug">
                 {currentSlide.title}{" "}
-                <span className="text-[#02E03D]">{currentSlide.highlight}</span>
+                <span className="text-[#3a86ff]">{currentSlide.highlight}</span>
               </h2>
               <div className="mb-3">
                 {currentSlide.description.map((desc, i) => (
@@ -141,7 +143,7 @@ function Page() {
                 ))}
               </div>
 
-              <p className="mt-4 text-xs md:text-sm text-[#02E03D]">
+              <p className="mt-4 text-xs md:text-sm text-[#3a86ff]">
                 {currentSlide.projectsCount}+ {currentSlide.badgeText}
               </p>
             </motion.div>

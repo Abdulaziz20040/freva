@@ -31,7 +31,7 @@ export default function Communication() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-white/10 p-6 md:p-10  text-white shadow-xl mt-20">
+    <div className="relative overflow-hidden rounded-3xl bg-transparent border border-[#3a86ff] p-6 md:p-10  text-white shadow-xl mt-20">
       {/* 🔔 Toast container */}
       <ToastContainer position="top-right" autoClose={3000} />
 
@@ -56,7 +56,7 @@ export default function Communication() {
             />
             <button
               onClick={handleSend}
-              className="rounded-full px-6 py-3 cursor-pointer bg-[#3b4cd5] text-white hover:bg-[#4c5ee9] font-semibold flex items-center gap-2 transition"
+              className="rounded-full px-6 py-3 cursor-pointer bg-[#3a86ff] text-white hover:bg-[#3a85ffd3] font-semibold flex items-center gap-2 transition"
             >
               Ariza qoldirish <span>📞</span>
             </button>
@@ -65,9 +65,9 @@ export default function Communication() {
 
         <div className="hidden md:flex flex-col items-end md:w-1/2 text-right justify-end">
           <img
-            src="https://i.ibb.co/jZ9nS0yr/photo-2025-06-05-14-18-51-removebg-preview.png"
+            src="https://i.ibb.co/JWHNV4Gq/Chat-GPT-Image-10-2025-01-53-04-removebg-preview.png"
             alt="freva Group"
-            className="w-32 mb-4"
+            className="w-42"
           />
           <div className="flex gap-6 text-3xl">
             <a

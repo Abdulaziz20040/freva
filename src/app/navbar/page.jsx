@@ -23,7 +23,7 @@ function Navbar() {
 
   const linkClass = (href) =>
     `font-medium text-lg ${
-      pathname === href ? "text-white" : "text-gray-400 hover:text-[#02E03D]"
+      pathname === href ? "text-white" : "text-gray-400 hover:text-[#3a86ff]"
     }`;
 
   return (
@@ -38,9 +38,14 @@ function Navbar() {
       <div className="max-w-[1342px] mx-auto flex justify-between items-center px-4">
         {/* Logo Section */}
         <Link href="/" className="flex items-center space-x-2">
-          <h2 className="text-[28px] text-[rgba(2,224,61,1)] font-extrabold font-sans leading-none">
+          {/* <h2 className="text-[28px] text-[#3a86ff] font-extrabold font-sans leading-none">
             Freva
-          </h2>
+          </h2> */}
+          <img
+            src="https://i.ibb.co/JWHNV4Gq/Chat-GPT-Image-10-2025-01-53-04-removebg-preview.png"
+            alt="Freva Logo"
+            className="w-30 h-10 object-cover"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -61,7 +66,7 @@ function Navbar() {
           <Link href="/order">
             <button
               type="button"
-              className="transition-all font-sans bg-gradient-to-r from-[#0c8932] to-[#29CA59] cursor-pointer duration-200 text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow hover:shadow-lg"
+              className="transition-all font-sans bg-[#3a86ff] cursor-pointer text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#3a86ff] hover:bg-transparent hover:text-[#3a86ff]"
             >
               Buyurtma berish
             </button>
@@ -114,7 +119,10 @@ function Navbar() {
         <div className="flex-grow" />
 
         <Link href="/order" onClick={() => setMobileMenuOpen(false)}>
-          <button className="w-full bg-gradient-to-r from-[#0c8932] to-[#29CA59] text-white py-3 rounded-full font-semibold">
+          <button
+            type="button"
+            className="transition-all font-sans bg-[#3a86ff] cursor-pointer text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#3a86ff] hover:bg-transparent hover:text-[#3a86ff]"
+          >
             Buyurtma berish
           </button>
         </Link>

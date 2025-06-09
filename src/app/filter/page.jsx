@@ -71,7 +71,7 @@ function Filter() {
       <div className="flex flex-col items-center w-full mt-6">
         <div
           ref={scrollRef}
-          className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar scroll-smooth w-full"
+          className="flex gap-10 overflow-x-auto items-center justify-start no-scrollbar w-full bg-[#090A31] p-3 rounded-full"
         >
           {filters.map((item, index) => {
             const isActive = index === activeIndex;
@@ -82,30 +82,16 @@ function Filter() {
                   setActiveIndex(index);
                   scrollToIndex(index);
                 }}
-                className={`flex items-center gap-3 cursor-pointer px-4 md:px-6 py-4 md:py-5 rounded-[15px] transition-all duration-300 
-                min-w-[70%] sm:min-w-[300px] md:min-w-[320px] lg:min-w-[350px] h-[90px] md:h-[100px] flex-shrink-0 select-none 
-                ${isActive ? "text-white" : "text-[#0c8932]"}`}
-                style={{
-                  background: isActive
-                    ? "linear-gradient(90deg, #0c8932 0%, #29CA59 100%)"
-                    : "linear-gradient(90deg, #f6fdf7 0%, #eaf7eb 100%)",
-                  boxShadow: isActive
-                    ? "0 4px 20px rgba(12, 137, 50, 0.6)"
-                    : "0 2px 6px rgba(0, 0, 0, 0.1)",
-                  border: isActive ? "none" : "1px solid #0c8932",
-                }}
+                className={`flex items-center gap-2 px-5 py-3 rounded-full transition-all duration-300 ease-in-out transform
+          ${
+            isActive
+              ? "cursor-pointer border border-[#3a86ff] bg-transparent  text-white shadow-inner scale-100"
+              : "cursor-pointer hover:scale-105"
+          }
+        `}
               >
-                <span
-                  className={`text-xl md:text-2xl ${
-                    isActive ? "text-white" : "text-[#0c8932]"
-                  }`}
-                >
-                  {item.icon}
-                </span>
-                <span
-                  className={`text-xs sm:text-sm md:text-base font-semibold text-left leading-tight flex-1`}
-                  style={{ color: isActive ? "white" : "#0c8932" }}
-                >
+                <span className={`text-lg md:text-xl`}>{item.icon}</span>
+                <span className="text-sm md:text-base font-medium">
                   {item.label}
                 </span>
               </button>

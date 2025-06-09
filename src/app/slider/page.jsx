@@ -121,7 +121,14 @@ const Slider = () => {
   const currentSlide = sliderData[index];
 
   return (
-    <div className="relative w-full min-h-[450px] mt-14 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden">
+    <div
+      style={{
+        // backgroundImage: `url(${"https://i.ibb.co/1fdgwxdS/f248f5525643770f0a9110a0025ad09e-1.jpg"})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="relative w-full min-h-[450px] mt-22 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -138,7 +145,7 @@ const Slider = () => {
               <span
                 style={{
                   background:
-                    "linear-gradient(93.59deg, #1ECC52 36.79%, #29CA59 77.82%)",
+                    "linear-gradient(93.59deg, #3a86ff 36.79%,#3a86ff 77.82%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -158,14 +165,16 @@ const Slider = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1ECC52] to-[#29CA59]">
+            <div className="flex flex-wrap gap-3 pt-2 text-sm  font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#3a86ff] to-[#3a86ff]">
               {currentSlide.tags.map((tag, i) => (
-                <span key={i}>{tag}</span>
+                <span className=" cursor-pointer" key={i}>
+                  {tag}
+                </span>
               ))}
             </div>
 
             <div className="flex items-center bg-white shadow-md rounded-full px-2 py-1 w-full max-w-md mt-3 text-xs sm:text-sm">
-              <FiSearch className="text-[#02E03D] text-lg sm:text-xl ml-2" />
+              <FiSearch className="text-[#3a86ff] text-lg sm:text-xl ml-2" />
               <input
                 type="text"
                 placeholder="Qidirish"
@@ -173,7 +182,7 @@ const Slider = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="flex-grow px-2 py-1 text-black placeholder-gray-400 outline-none text-xs sm:text-sm bg-transparent"
               />
-              <button className="bg-gradient-to-r from-[#1ECC52] to-[#29CA59] text-white text-xs sm:text-sm font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full hover:-translate-y-1 transition">
+              <button className="bg-gradient-to-r from-[#3a86ff] to-[#3a86ff] text-white text-xs sm:text-sm font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full hover:-translate-y-[1px] cursor-pointer transition">
                 Qidirish
               </button>
             </div>
@@ -219,8 +228,8 @@ const Slider = () => {
             onClick={() => setIndex(i)}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition ${
               i === index
-                ? "bg-gradient-to-r from-[#1ECC52] to-[#29CA59]"
-                : "bg-[#e3f7e8]"
+                ? "bg-gradient-to-r from-[#3a86ff] to-[#3a86ff]"
+                : "bg-[#f3f5f9]"
             }`}
           ></div>
         ))}

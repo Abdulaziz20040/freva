@@ -10,8 +10,13 @@
 body,
 html {
   overflow-x: hidden;
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%);
+  /* background: linear-gradient(59.36deg, #171a39 19.47%, #171a39 104.56%); */
+  background-image: url("https://i.ibb.co/C3j42q2C/671cf59ff59393be6e93326276503411-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+
   color: white;
   margin: 0;
   padding: 0;
@@ -39,14 +44,14 @@ html {
 /* Step doira (icon) fonini yashil qilish */
 .ant-steps-item-icon {
   background-color: #ffffff !important;
-  border-color: #02e03d !important;
+  border-color: #3a86ff !important;
 }
 
 /* Faol va tugallangan step doiralari uchun ham rang */
 .ant-steps-item-finish .ant-steps-item-icon,
 .ant-steps-item-process .ant-steps-item-icon {
-  background-color: #02e03d !important;
-  border-color: #02e03d !important;
+  background-color: #3a86ff !important;
+  border-color: #3a86ff !important;
   color: #ffffff;
 }
 

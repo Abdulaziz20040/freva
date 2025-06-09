@@ -36,17 +36,11 @@ const Price = () => {
       : pricingData.filter((item) => item.category === selectedCategory);
 
   return (
-    <div
-      className="containes text-white pt-20"
-      style={{
-        background:
-          "linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%)",
-      }}
-    >
+    <div className="containes text-white pt-20">
       {/* Title & Description */}
       <div className="flex flex-col md:flex-row items-start justify-between px-4 gap-6 mb-5">
         <div className="text-left max-w-xl">
-          <h1 className="text-[32px] md:text-[38px] text-[rgba(2,224,61,1)] drop-shadow-lg font-bold">
+          <h1 className="text-[32px] md:text-[38px] text-[#3a86ff] drop-shadow-lg font-bold">
             Siz uchun yaxshi narxlarda eng sifatli xizmatlar!
           </h1>
           <p className="mt-4 text-[16px] text-gray-400">
@@ -66,8 +60,8 @@ const Price = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-5 py-2 cursor-pointer rounded-full border ${
                 selectedCategory === cat
-                  ? "bg-[rgba(2,224,61,1)] text-black font-semibold"
-                  : "border-[rgba(2,224,61,1)] text-white"
+                  ? "bg-[#3a86ff] text-black font-semibold"
+                  : "border-[#3a86ff] text-white"
               } transition duration-200`}
             >
               {cat}
@@ -93,7 +87,7 @@ const Price = () => {
                 }}
                 className="p-4 bg-white/10 border cursor-pointer overflow-y-auto h-[380px] no-scrollbar border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
               >
-                <h3 className="text-2xl font-bold text-[rgba(2,224,61,1)] mb-2">
+                <h3 className="text-2xl font-bold text-[#3a86ff] mb-2">
                   {item.title}
                 </h3>
                 <p className="text-xl font-semibold mb-4">{item.price}</p>
@@ -112,7 +106,7 @@ const Price = () => {
                 {item.features && item.features.length > 6 && (
                   <button
                     onClick={() => toggleExpand(index)}
-                    className="mt-2 text-[rgba(2,224,61,1)] underline text-sm"
+                    className="mt-2 text-[#3a86ff] underline text-sm"
                   >
                     {isExpanded ? "Yopish" : "Ko‘proq ko‘rish..."}
                   </button>

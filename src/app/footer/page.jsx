@@ -11,7 +11,7 @@ function Footer() {
 
         <div className="flex flex-col items-center sm:items-start">
           <p className="font-semibold text-xl">Telefon Raqam</p>
-          <p className="mt-1">+998 90 932 21 22</p>
+          <p className="mt-1">+998 77 014 50 47</p>
         </div>
 
         <div className="flex justify-center sm:justify-start gap-8 text-2xl text-white">

@@ -7,19 +7,15 @@ import Filter from "./filter/page";
 import Group from "./group/page";
 import Communication from "./communication/page";
 import Footer from "./footer/page";
+import About from "./about/page";
 
 function Page() {
   return (
-    <div
-      className="min-h-screen"
-      style={{
-        background:
-          "linear-gradient(59.36deg, #0a0b2a 19.47%, #080937 104.56%)",
-      }}
-    >
+    <div className="min-h-screen">
       <div className="mt-3 containes">
         <Navbar />
         <Slider />
+        <About />
         <Filter />
         <Group />
         <Communication />
