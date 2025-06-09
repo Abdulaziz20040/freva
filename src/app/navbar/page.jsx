@@ -53,9 +53,7 @@ function Navbar() {
           <Link href="/" className={linkClass("/")}>
             Asosiy
           </Link>
-          <Link href="/about" className={linkClass("/about")}>
-            Biz haqimizda
-          </Link>
+
           <Link href="/price" className={linkClass("/price")}>
             Narxlar
           </Link>
