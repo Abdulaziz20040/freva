@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.freva.uz
+
+# Sitemaps
+Sitemap: https://www.freva.uz/sitemap.xml
