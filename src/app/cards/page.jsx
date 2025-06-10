@@ -2,71 +2,107 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsBookmark } from "react-icons/bs";
-import { FiEye } from "react-icons/fi";
+import "antd/dist/reset.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import LazyBackground from "../filter/LazyBackground";
+import Link from "next/link";
 
 function Cards() {
   const [data, setData] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(9);
+
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   useEffect(() => {
     axios
       .get("https://177add8ca22d8b9a.mokky.dev/card")
-      .then((response) => {
-        const frontendCards = response.data.filter(
-          (item) => item.categories === "frontend"
-        );
-        setData(frontendCards);
-      })
-      .catch((error) => {
-        console.error("Error fetching card data:", error);
-      });
+      .then((res) => setData(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
-  return (
-    <div className="flex flex-wrap justify-center gap-6">
-      {data.map((card, index) => (
-        <div
-          key={index}
-          className="w-full bg-pink-500 sm:w-[45%] lg:w-[22%] rounded-b-[8px] rounded-t-[5px]  overflow-hidden shadow-lg"
-        >
-          {/* Top Image Section */}
-          <div className="w-full h-52 ">
-            <img
-              src={card.img}
-              alt={card.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
 
-          {/* Bottom Body Section */}
-          <div className="bg-white rounded-b-2xl h-full p-4 rounded-l-[50px]">
-            <div className="p-2">
-              <h2 className="font-bold text-[22px] text-orange-500 text-md ">
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const visibleData = data.slice(0, visibleCount);
+  const showMoreAvailable = visibleCount < data.length;
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 9);
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-10">
+      <motion.div
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
+        {visibleData.map((card, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            className="relative group rounded-[10px] overflow-hidden bg-white/10 border border-white/20 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+          >
+            <Link href={`/details/${card.id}`}>
+              <LazyBackground
+                src={card.img}
+                className="h-[260px] w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundPosition: "center" }}
+              />
+            </Link>
+
+            {/* Pastki yozuvlar joyi */}
+            <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-black/80 to-transparent text-white">
+              <h2
+                style={{
+                  fontWeight: "bold",
+                }}
+                className="text-xl text-[#ffffff]"
+              >
                 {card.title}
               </h2>
-              <p className="text-sm text-gray-600 mt-3 mb-2">Web UI</p>
-
-              <p className="text-gray-500 text-sm mb-3">{card.desc}</p>
-            </div>
-            <div className="flex justify-between items-center text-gray-500 text-sm mb-3">
-              <span className="flex items-center gap-1 cursor-pointer">
-                <AiOutlineHeart /> {card.like}
-              </span>
-              <span className="flex items-center gap-1 cursor-pointer">
-                <BsBookmark /> {card.comment}
-              </span>
-              <span className="flex items-center gap-1 cursor-pointer">
-                <FiEye /> {card.eye}
-              </span>
+              <p className="text-sm text-gray-400 mt-1">{card.categories}</p>
             </div>
 
-            <button className="w-full cursor-pointer bg-orange-200 text-orange-700 font-semibold py-2 rounded-md hover:bg-orange-300 transition">
-              Ko‘rish
-            </button>
-          </div>
+            {/* Dekorativ nur effekti */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+              <div className="absolute top-0 left-0 w-full h-full bg-white/10 rounded-3xl pointer-events-none" />
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {showMoreAvailable && (
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={handleShowMore}
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-green-400 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+          >
+            Ko‘proq ko‘rsatish
+          </button>
         </div>
-      ))}
+      )}
     </div>
   );
 }

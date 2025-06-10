@@ -1,10 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FiSearch } from "react-icons/fi";
 import { FaFolder } from "react-icons/fa";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import image from "../../../img/1.png";
 import "../globals.css";
 
 const sliderData = [
@@ -90,6 +87,7 @@ const sliderData = [
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
   },
 ];
+
 const variants = {
   initial: { x: 100, opacity: 0 },
   animate: {
@@ -106,28 +104,23 @@ const variants = {
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    let interval;
-    if (searchTerm.trim() === "") {
-      interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % sliderData.length);
-      }, 10000);
-    }
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % sliderData.length);
+    }, 10000);
     return () => clearInterval(interval);
-  }, [searchTerm]);
+  }, []);
 
   const currentSlide = sliderData[index];
 
   return (
     <div
       style={{
-        // backgroundImage: `url(${"https://i.ibb.co/1fdgwxdS/f248f5525643770f0a9110a0025ad09e-1.jpg"})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="relative w-full min-h-[450px] mt-22 md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
+      className="relative w-full mt-20 min-h-[450px] md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -138,14 +131,14 @@ const Slider = () => {
           exit="exit"
           className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-10 w-full max-w-7xl"
         >
-          {/* Left Side */}
+          {/* Chap tomon */}
           <div className="flex-1 space-y-4">
-            <h1 className="text-lg sm:text-2xl md:text-[40px] font-[900] font-sans leading-snug text-white break-words whitespace-normal">
+            <h1 className="text-lg sm:text-2xl md:text-[40px] font-extrabold leading-snug text-white font-sans break-words whitespace-normal">
               {currentSlide.title}{" "}
               <span
                 style={{
                   background:
-                    "linear-gradient(93.59deg, #3a86ff 36.79%,#3a86ff 77.82%)",
+                    "linear-gradient(93.59deg, #9333EA 36.79%, #9333EA 77.82%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -154,52 +147,43 @@ const Slider = () => {
               </span>
             </h1>
 
-            <div className="text-gray-400 space-y-1 break-words whitespace-normal">
+            <div className="text-gray-300 space-y-1">
               {currentSlide.description.map((line, i) => (
-                <p
-                  key={i}
-                  className="text-xs sm:text-sm md:text-base break-words whitespace-normal"
-                >
+                <p key={i} className="text-sm sm:text-base">
                   {line}
                 </p>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-2 text-sm  font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#3a86ff] to-[#3a86ff]">
+            <div className="flex flex-wrap gap-3 pt-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#9333EA] to-[#9333EA]">
               {currentSlide.tags.map((tag, i) => (
-                <span className=" cursor-pointer" key={i}>
+                <span key={i} className="cursor-pointer">
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center bg-white shadow-md rounded-full px-2 py-1 w-full max-w-md mt-3 text-xs sm:text-sm">
-              <FiSearch className="text-[#3a86ff] text-lg sm:text-xl ml-2" />
-              <input
-                type="text"
-                placeholder="Qidirish"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-grow px-2 py-1 text-black placeholder-gray-400 outline-none text-xs sm:text-sm bg-transparent"
-              />
-              <button className="bg-gradient-to-r from-[#3a86ff] to-[#3a86ff] text-white text-xs sm:text-sm font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full hover:-translate-y-[1px] cursor-pointer transition">
-                Qidirish
+            {/* Buttonlar */}
+            <div className="flex gap-4 pt-4 flex-wrap">
+              <a href="https://t.me/freva_manager">
+                <button className="bg-gradient-to-r from-[#9333EA] to-[#9333EA] text-white font-semibold px-5 py-2 rounded-[8px] cursor-pointer hover:-translate-y-[1px] transition text-sm sm:text-base">
+                  Bepul konsultatsiya olish
+                </button>
+              </a>
+              <button className="bg-transparent text-[#9333EA] font-semibold px-5 py-2 rounded-[8px] cursor-pointer hover:-translate-y-[1px] transition border border-[#9333EA] text-sm sm:text-base">
+                Loyihalarni ko‘rish
               </button>
             </div>
           </div>
 
-          {/* Right Side */}
-          <div className="relative flex-1 flex justify-center items-center min-h-[250px] sm:min-h-[300px] hidden sm:flex">
+          {/* O‘ng tomon */}
+          <div className="relative flex-1 flex justify-center items-center min-h-[300px] hidden sm:flex">
             <button className="absolute top-0 right-5 bg-white/60 backdrop-blur-md shadow-md rounded-xl p-3 flex items-center gap-2 hover:scale-105 hover:shadow-lg transition">
-              <div>
-                <div className="text-base md:text-lg cursor-pointer font-semibold flex items-center gap-2">
-                  <FaFolder className="text-xl text-[#3B82F6]" />
-                  {currentSlide.projectsCount}
-                </div>
-                <div className="text-sm text-white">
-                  {currentSlide.badgeText}
-                </div>
+              <div className="text-base md:text-lg font-semibold flex items-center gap-2">
+                <FaFolder className="text-xl text-[#9333EA]" />
+                {currentSlide.projectsCount}
               </div>
+              <div className="text-sm text-white">{currentSlide.badgeText}</div>
             </button>
 
             <img
@@ -210,8 +194,8 @@ const Slider = () => {
               className="rounded-lg z-10 w-full max-w-[300px] sm:max-w-[400px] object-contain"
             />
 
-            <div className="absolute bottom-8 left-4 cursor-pointer sm:left-10 w-[140px] h-[80px] bg-white/60 text-center z-10 shadow-md backdrop-blur-md rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:scale-105 hover:shadow-lg transition">
-              <div className="text-xl text-orange-400">⚡</div>
+            <div className="absolute bottom-8 left-4 sm:left-10 w-[160px] bg-white/60 text-center z-10 shadow-md backdrop-blur-md rounded-xl p-3 flex flex-col items-center justify-center gap-1 hover:scale-105 hover:shadow-lg transition">
+              <div className="text-xl text-purple-600">⚡</div>
               <div className="text-sm text-white">
                 {currentSlide.featureText}
               </div>
@@ -220,16 +204,14 @@ const Slider = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Dots */}
+      {/* Nuqtalar */}
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
         {sliderData.map((_, i) => (
           <div
             key={i}
             onClick={() => setIndex(i)}
             className={`w-2.5 h-2.5 rounded-full cursor-pointer transition ${
-              i === index
-                ? "bg-gradient-to-r from-[#3a86ff] to-[#3a86ff]"
-                : "bg-[#f3f5f9]"
+              i === index ? "bg-[#9333EA]" : "bg-[#f3f5f9]"
             }`}
           ></div>
         ))}
