@@ -18,15 +18,35 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* ✅ Google Search Console tasdiq kodi */}
         <meta
           name="google-site-verification"
           content="d8oUgzuv2nyM525NrQ1Z4opmzEk8JMtfsDK7qx1eyug"
         />
+
+        {/* ✅ Google Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
 
+        {/* ✅ Google Analytics (GA4) tracking kodi */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-SRG19VXGT8"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-SRG19VXGT8');
+            `,
+          }}
+        />
+
+        {/* ✅ SEO uchun strukturaviy ma'lumotlar */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -34,8 +54,8 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Freva",
-              url: "https://your-domain.com",
-              logo: "https://your-domain.com/logo.png",
+              url: "https://freva.uz",
+              logo: "https://freva.uz/logo.svg",
             }),
           }}
         />
