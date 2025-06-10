@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaFolder } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import "../globals.css";
+import Link from "next/link";
 
 const sliderData = [
   {
@@ -11,8 +12,6 @@ const sliderData = [
     description: [
       "Bugun zakaz bering – ertaga tayyor bo‘lsin!",
       "Freva jamoasi har kuni yangi loyihalar uchun tayyor.",
-      "— barcha xizmatlar bir joyda.",
-      "Mos xizmatni tanlang, biz tez va sifatli yakunlaymiz!",
     ],
     tags: ["Web Dizayn", "UI/UX Dizayner", "Frontend"],
     projectsCount: "500+",
@@ -26,7 +25,6 @@ const sliderData = [
     description: [
       "Biznesingizni internetga olib chiqamiz.",
       "Saytlar, CRM tizimlar, mobil ilovalar – barchasi bizda.",
-      "Ishonchli va tezkor yechimlar bilan ishlaymiz.",
     ],
     tags: ["Backend", "Mobil Ilovalar", "CRM"],
     projectsCount: "200+",
@@ -120,7 +118,7 @@ const Slider = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="relative w-full mt-20 min-h-[450px] md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
+      className="relative w-full mt-22 min-h-[450px] md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -133,7 +131,12 @@ const Slider = () => {
         >
           {/* Chap tomon */}
           <div className="flex-1 space-y-4">
-            <h1 className="text-lg sm:text-2xl md:text-[40px] font-extrabold leading-snug text-white font-sans break-words whitespace-normal">
+            <h1
+              style={{
+                fontWeight: "700",
+              }}
+              className="text-lg sm:text-2xl md:text-[40px] leading-snug text-white font-sans break-words whitespace-normal"
+            >
               {currentSlide.title}{" "}
               <span
                 style={{
@@ -147,9 +150,9 @@ const Slider = () => {
               </span>
             </h1>
 
-            <div className="text-gray-300 space-y-1">
+            <div className="text-gray-200 space-y-1">
               {currentSlide.description.map((line, i) => (
-                <p key={i} className="text-sm sm:text-base">
+                <p key={i} className="text-sm leading-2.5">
                   {line}
                 </p>
               ))}
@@ -170,14 +173,49 @@ const Slider = () => {
                   Bepul konsultatsiya olish
                 </button>
               </a>
-              <button className="bg-transparent text-[#9333EA] font-semibold px-5 py-2 rounded-[8px] cursor-pointer hover:-translate-y-[1px] transition border border-[#9333EA] text-sm sm:text-base">
-                Loyihalarni ko‘rish
-              </button>
+              <Link href="/cards">
+                <button className="bg-transparent text-[#9333EA] font-semibold px-5 py-2 rounded-[8px] cursor-pointer hover:-translate-y-[1px] transition border border-[#9333EA] text-sm sm:text-base">
+                  Loyihalarni ko‘rish
+                </button>
+              </Link>
+            </div>
+
+            {/* Pastki chiziq */}
+            <div className="w-full h-[1px] bg-[#9333EA] my-6"></div>
+
+            {/* Statistikalar bloki */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 text-white text-center">
+              <div>
+                <p className="text-2xl sm:text-3xl font-[700] text-[#9333EA]">
+                  1+
+                </p>
+                <p className="text-sm sm:text-base">Yillik tajriba</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl font-[700] text-[#9333EA]">
+                  140+
+                </p>
+                <p className="text-sm sm:text-base">Muvaffaqiyatli loyihalar</p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl font-[700] text-[#9333EA]">
+                  12+
+                </p>
+                <p className="text-sm sm:text-base">
+                  Professional mutaxassislar
+                </p>
+              </div>
+              <div>
+                <p className="text-2xl sm:text-3xl font-[700] text-[#9333EA]">
+                  95%
+                </p>
+                <p className="text-sm sm:text-base">Mijozlar mamnuniyati</p>
+              </div>
             </div>
           </div>
 
           {/* O‘ng tomon */}
-          <div className="relative flex-1 flex justify-center items-center min-h-[300px] hidden sm:flex">
+          <div className="relative flex-1 flex  justify-center items-center min-h-[300px] hidden sm:flex">
             <button className="absolute top-0 right-5 bg-white/60 backdrop-blur-md shadow-md rounded-xl p-3 flex items-center gap-2 hover:scale-105 hover:shadow-lg transition">
               <div className="text-base md:text-lg font-semibold flex items-center gap-2">
                 <FaFolder className="text-xl text-[#9333EA]" />
@@ -205,7 +243,7 @@ const Slider = () => {
       </AnimatePresence>
 
       {/* Nuqtalar */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex mt-10 gap-2">
         {sliderData.map((_, i) => (
           <div
             key={i}

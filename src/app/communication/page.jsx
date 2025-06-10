@@ -1,10 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import {
+  FaTelegramPlane,
+  FaUserShield,
+  FaUsers,
+  FaShieldAlt,
+} from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Communication() {
+export default function Page() {
   const [phone, setPhone] = useState("");
 
   const botToken = "7743808180:AAE51pwYyhVuT3XHUlmsheEWZ0XqhK06sSA";
@@ -15,14 +20,21 @@ export default function Communication() {
       toast.error("Iltimos, telefon raqamingizni kiriting.");
       return;
     }
-
-    const text = `Yangi ariza:%0A📞 Telefon raqami: ${phone}`;
+    const text =
+      `\uD83D\uDD1A *Yangi ariza*%0A` +
+      `\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014%0A` +
+      `\uD83D\uDCDE *Telefon raqami:* +${phone}%0A` +
+      `\uD83D\uDD52 *Yuborilgan vaqt:* ${new Date().toLocaleString(
+        "uz-UZ"
+      )}%0A` +
+      `\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014`;
 
     try {
       await fetch(
-        `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}`
+        `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=Markdown`
       );
-      toast.success("Arizangiz muvaffaqiyatli yuborildi ✅");
+
+      toast.success("Arizangiz muvaffaqiyatli yuborildi");
       setPhone("");
     } catch (error) {
       toast.error("Xatolik yuz berdi, qayta urinib ko‘ring.");
@@ -31,72 +43,97 @@ export default function Communication() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-transparent border border-[#3a86ff] p-6 md:p-10  text-white shadow-xl mt-20">
-      {/* 🔔 Toast container */}
+    <div
+      style={{
+        background: "linear-gradient(90deg, #581C87 0%, #312E81 100%)",
+      }}
+      className="to-indigo-900 text-white mt-15"
+    >
       <ToastContainer position="top-right" autoClose={3000} />
 
-      {/* Qolgan kontent */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8 h-full">
-        <div className="flex flex-col justify-center gap-3 w-full md:w-1/2">
-          <h2 className="text-2xl md:text-3xl font-extrabold leading-tight">
-            Bizga aloqaga chiqing va bepul konsultatsiya oling!
-          </h2>
-          <p className="text-sm md:text-base max-w-md">
-            Ma'lumotlaringizni qoldiring va menejerlarimiz sizga aloqaga
-            chiqishadi
+      <div className="containes px-4 sm:px-6 lg:px-8 py-20 flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Chap qism */}
+        <div className="flex-1 max-w-2xl space-y-6">
+          <h1
+            style={{
+              fontWeight: "700",
+            }}
+            className="text-3xl sm:text-4xl  leading-tight"
+          >
+            Biznesingizni yangi bosqichga olib chiqishga tayyormisiz? Raqamli
+            yechimlar bilan raqobatchilardan ilgarilab boring!
+          </h1>
+          <p className="text-base sm:text-lg text-gray-300">
+            Biz bilan bog'laning va biznesingiz uchun eng optimal IT yechimlarni
+            birgalikda yarataylik. Bepul konsultatsiya va loyiha bahosi.
           </p>
-          <div className="flex items-center bg-white rounded-full p-1 mt-6 max-w-md shadow-md w-full">
+
+          <div className="flex items-center bg-white rounded-full p-1 mt-6 max-w-md w-full shadow-md">
             <input
-              type="text"
-              placeholder="Telefon raqamingiz"
+              type="tel"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                const onlyNumbers = e.target.value.replace(/[^\d+]/g, "");
+                setPhone(onlyNumbers);
+              }}
+              placeholder="+998901234567"
+              inputMode="tel"
+              pattern="^\\+?\\d*$"
               style={{ fontFamily: "'Poppins', sans-serif", color: "black" }}
               className="flex-1 rounded-full px-4 py-2 bg-white placeholder-gray-500 focus:outline-none"
             />
+
             <button
               onClick={handleSend}
-              className="rounded-full px-6 py-3 cursor-pointer bg-[#3a86ff] text-white hover:bg-[#3a85ffd3] font-semibold flex items-center gap-2 transition"
+              style={{
+                color: "#aa33ea",
+              }}
+              className="rounded-full px-6 py-3 bg-transparent border border-[#aa33ea] cursor-pointer font-semibold flex items-center gap-2 transition"
             >
-              Ariza qoldirish <span>📞</span>
+              Ariza qoldirish <span>\uD83D\uDCDE</span>
             </button>
           </div>
         </div>
 
-        <div className="hidden md:flex flex-col items-end md:w-1/2 text-right justify-end">
-          <img
-            src="https://i.ibb.co/JWHNV4Gq/Chat-GPT-Image-10-2025-01-53-04-removebg-preview.png"
-            alt="freva Group"
-            className="w-42"
-          />
-          <div className="flex gap-6 text-3xl">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-500 transition"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-red-500 transition"
-            >
-              <FaYoutube />
-            </a>
-            <a
-              href="https://t.me/freva_manager"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sky-400 transition"
-            >
-              <FaTelegram />
-            </a>
+        {/* O'ng qism */}
+        <div
+          style={{
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(4px)",
+          }}
+          className="flex-1 w-full max-w-md bg-opacity-5 backdrop-blur-md rounded-2xl p-8 space-y-6 border border-white border-opacity-10"
+        >
+          <div className="flex items-start gap-4 hover:shadow-indigo-500/50 transition-transform hover:scale-105 duration-500 cursor-pointer">
+            <div className="text-2xl text-white bg-[#ffffff52] p-3 rounded-full">
+              <FaUserShield />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">Yuqori sifat kafolati</h3>
+              <p className="text-gray-300 text-sm">
+                1+ yillik tajriba, 140+ loyihalar
+              </p>
+            </div>
           </div>
-          <div className="text-white font-semibold text-lg mt-3">
-            +998 77 014 50 47
+
+          <div className="flex items-start gap-4 hover:shadow-indigo-500/50 transition-transform hover:scale-105 duration-500 cursor-pointer">
+            <div className="text-2xl text-white bg-[#ffffff52] p-3 rounded-full">
+              <FaUsers />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">Jamoamiz</h3>
+              <p className="text-gray-300 text-sm">12+ mutaxassislar</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 hover:shadow-indigo-500/50 transition-transform hover:scale-105 duration-500 cursor-pointer">
+            <div className="text-2xl text-white bg-[#ffffff52] p-3 rounded-full">
+              <FaShieldAlt />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">Sifat kafolati</h3>
+              <p className="text-gray-300 text-sm">100% mijoz mamnuniyati</p>
+            </div>
           </div>
         </div>
       </div>

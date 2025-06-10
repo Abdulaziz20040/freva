@@ -62,10 +62,19 @@ function Filter() {
 
   return (
     <div className="mt-10 md:mt-20 px-4">
-      <div className="flex items-center gap-4">
-        <h1 className="text-xl md:text-2xl lg:text-[25px] font-bold">
+      <div className="flex flex-col items-center justify-center gap-4">
+        <h1
+          style={{
+            fontWeight: "800",
+          }}
+          className="text-[30px]"
+        >
           Loyihalarimiz
         </h1>
+        <span className="text-gray-300 text-[18px] text-center max-w-[600px]">
+          140+ muvaffaqiyatli loyihalar va mamnun mijozlar. Har bir loyiha
+          mijozning talablariga mos ravishda yaratilgan
+        </span>
       </div>
 
       <div className="flex flex-col items-center w-full mt-6">

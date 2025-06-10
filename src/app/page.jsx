@@ -8,6 +8,7 @@ import Group from "./group/page";
 import Communication from "./communication/page";
 import Footer from "./footer/page";
 import About from "./about/page";
+import Why from "../why/page";
 
 function Page() {
   return (
@@ -15,12 +16,13 @@ function Page() {
       <div className="mt-3 containes">
         <Navbar />
         <Slider />
+        <Why />
         <About />
         <Filter />
         <Group />
-        <Communication />
-        <Footer />
       </div>
+      <Communication />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -20,13 +20,11 @@ function Group() {
     <div className="p-4 mt-10">
       <h2
         style={{
-          fontFamily: "Poppins, sans-serif",
-
-          fontWeight: "bold",
+          fontWeight: "800",
         }}
-        className=" text-[25px] text-center pt-[px] "
+        className=" text-[30px] text-center pt-[px] "
       >
-        Jamoamiz azolari
+        Jamoamiz <span className=" text-[#aa33ea]">azolari</span>
       </h2>
       <p className="text-gray-400 text-center mt-2 max-w-2xl mx-auto">
         Bizning jamoamiz — bu tajribali dasturchilar, dizaynerlar va mobil ilova

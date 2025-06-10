@@ -3,7 +3,7 @@ import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="w-full  text-white px-6 py-10">
+    <footer className="w-full  text-white px-6 py-10 containes">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between gap-8 sm:gap-0">
         <div className="flex flex-col items-center sm:items-start">
           <p className="font-semibold text-xl">Freva</p>
