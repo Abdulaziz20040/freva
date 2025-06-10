@@ -79,7 +79,7 @@ export default function OrderPage() {
 
   return (
     <div className="w-full max-w-3xl text-white p-14 overflow-y-auto max-h-[710px] no-scrollbar">
-      <h1 className="text-4xl font-extrabold mb-10 text-center text-[#3a86ff]">
+      <h1 className="text-4xl font-extrabold mb-10 text-center text-[#aa33ea]">
         Buyurtma Berish
       </h1>
 
@@ -141,8 +141,8 @@ export default function OrderPage() {
           <Button
             htmlType="submit"
             style={{
-              backgroundColor: "#3a86ff",
-              borderColor: "#3a86ff",
+              backgroundColor: "#aa33ea",
+              borderColor: "#aa33ea",
               color: "white",
               width: "100%",
             }}

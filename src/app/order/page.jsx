@@ -113,7 +113,7 @@ function Page() {
       >
         {/* Orqaga qaytish icon */}
         <Link href="/">
-          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#3a86ff] hover:-translate-x-2 z-10">
+          <button className="absolute cursor-pointer top-6 left-6 text-[#ffffff] text-[25px] font-bold transition-all duration-500 hover:text-[#aa33ea] hover:-translate-x-2 z-10">
             <AiOutlineDoubleLeft />
           </button>
         </Link>
@@ -130,7 +130,7 @@ function Page() {
             >
               <h2 className="text-2xl md:text-3xl font-[700] font-sans text-white mb-4 leading-snug">
                 {currentSlide.title}{" "}
-                <span className="text-[#3a86ff]">{currentSlide.highlight}</span>
+                <span className="text-[#aa33ea]">{currentSlide.highlight}</span>
               </h2>
               <div className="mb-3">
                 {currentSlide.description.map((desc, i) => (
@@ -143,7 +143,7 @@ function Page() {
                 ))}
               </div>
 
-              <p className="mt-4 text-xs md:text-sm text-[#3a86ff]">
+              <p className="mt-4 text-xs md:text-sm text-[#aa33ea]">
                 {currentSlide.projectsCount}+ {currentSlide.badgeText}
               </p>
             </motion.div>

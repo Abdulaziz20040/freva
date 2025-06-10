@@ -36,7 +36,7 @@ const Price = () => {
       : pricingData.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="containes text-white pt-20">
+    <div className="containes text-white pt-25">
       {/* Title & Description */}
       <div className="flex flex-col md:flex-row items-start justify-between px-4 gap-6 mb-5">
         <div className="text-left max-w-xl">
@@ -60,8 +60,8 @@ const Price = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-5 py-2 cursor-pointer rounded-full border ${
                 selectedCategory === cat
-                  ? "bg-[#3a86ff] text-black font-semibold"
-                  : "border-[#3a86ff] text-white"
+                  ? "bg-[#aa33ea] border-none font-semibold"
+                  : "border-[#aa33ea] text-white"
               } transition duration-200`}
             >
               {cat}
@@ -85,7 +85,7 @@ const Price = () => {
                   duration: 0.7,
                   ease: "easeOut",
                 }}
-                className="p-4 bg-white/10 border cursor-pointer overflow-y-auto h-[390px] no-scrollbar border-[rgba(2,224,61,0.4)] rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform"
+                className="p-4 h-[600px] bg-white/10 hover:border-[#aa33ea] hover:border  cursor-pointer  rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform duration-300"
               >
                 <h3 className="text-2xl font-bold text-[#ffffff] mb-2">
                   {item.title}
@@ -95,24 +95,12 @@ const Price = () => {
                 </p>
 
                 <ul
-                  className={`text-sm text-gray-300 space-y-2 overflow-y-auto transition-all no-scrollbar ${
-                    isExpanded ? "max-h-full" : "max-h-[200px]"
-                  }`}
+                  className={`text-sm text-gray-300 space-y-2 overflow-y-auto transition-all no-scrollbar`}
                 >
                   {item.features?.map((feature, i) => (
                     <li key={i}>✅ {feature}</li>
                   ))}
                 </ul>
-
-                {/* Toggle button */}
-                {item.features && item.features.length > 6 && (
-                  <button
-                    onClick={() => toggleExpand(index)}
-                    className="mt-2 text-[#3a86ff] underline text-sm"
-                  >
-                    {isExpanded ? "Yopish" : "Ko‘proq ko‘rish..."}
-                  </button>
-                )}
               </motion.div>
             );
           })}
