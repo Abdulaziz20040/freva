@@ -64,7 +64,7 @@ function Navbar() {
           <Link href="/order">
             <button
               type="button"
-              className="transition-all font-sans bg-[#3a86ff] cursor-pointer text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#3a86ff] hover:bg-transparent hover:text-[#3a86ff]"
+              className="transition-all font-sans bg-[#9333EA] cursor-pointer text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#3a86ff] hover:bg-transparent hover:text-[#3a86ff]"
             >
               Buyurtma berish
             </button>
