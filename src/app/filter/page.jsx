@@ -61,7 +61,7 @@ function Filter() {
   };
 
   return (
-    <div className="mt-10 md:mt-20 px-4">
+    <div className="mt-10 pt-5 md:mt-20 px-4">
       <div className="flex flex-col items-center justify-center gap-4">
         <h1
           style={{

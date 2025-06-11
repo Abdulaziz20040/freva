@@ -42,7 +42,7 @@ function Details() {
       {/* TOP SECTION */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
         {/* IMAGES */}
-        <div className=" rounded-3xl shadow-2xl">
+        <div className=" rounded-3xl ">
           <img
             style={{
               borderRadius: "40px",
@@ -63,7 +63,7 @@ function Details() {
                   onClick={() => setSelectedImage(thumb)}
                   className={`min-w-[80px] h-20 sm:min-w-[100px] sm:h-24 object-cover rounded-xl border-2 cursor-pointer transition-all duration-300 shadow-md hover:scale-105 ${
                     selectedImage === thumb
-                      ? "border-[rgba(2,224,61,1)] scale-105"
+                      ? "border-[#9333EA] scale-105"
                       : "border-transparent"
                   }`}
                 />
@@ -73,7 +73,7 @@ function Details() {
 
         {/* DETAILS */}
         <div className="flex flex-col justify-center space-y-6 md:space-y-8 lg:space-y-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[rgba(2,224,61,1)] break-words mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#9333EA] break-words mb-4">
             {product.title}
           </h2>
 
@@ -81,21 +81,19 @@ function Details() {
             className="leading-relaxed text-white cursor-pointer text-base sm:text-lg mb-6"
             onClick={() => setTruncateText(!truncateText)}
           >
-            <span className="text-[rgba(2,224,61,1)] font-semibold mr-2">
-              Qisqacha:
-            </span>
+            <span className="text-[#9333EA] font-semibold mr-2">Qisqacha:</span>
             {truncateText ? `${product.desc.slice(0, 170)}...` : product.desc}
           </p>
 
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[rgba(2,224,61,1)] mb-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#9333EA] mb-3">
               Texnologiyalar
             </h3>
             <div className="flex flex-wrap gap-3">
               {product.technologies?.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 rounded-full cursor-pointer text-sm font-semibold bg-white text-[#006b24] shadow-lg hover:bg-[rgba(2,224,61,1)] hover:text-white transition-all duration-300"
+                  className="px-4 py-2 rounded-full cursor-pointer text-sm font-semibold bg-white text-[#9333EA] shadow-lg hover:bg-[#9333EA] hover:text-white transition-all duration-300"
                 >
                   {tech}
                 </span>
@@ -111,7 +109,7 @@ function Details() {
                     href={product.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 bg-[rgba(2,224,61,1)] text-[#ffffff] font-semibold rounded-xl shadow-lg hover:bg-white hover:text-[#006b24] transition-colors duration-300"
+                    className="inline-block px-6 py-3 bg-[#9333EA] text-[#ffffff] font-semibold rounded-xl shadow-lg hover:bg-white hover:text-[#9333EA] transition-colors duration-300"
                   >
                     Loyihani ko‘rish
                   </a>
@@ -129,7 +127,7 @@ function Details() {
               )}
 
               <div>
-                <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
+                <h4 className="text-lg sm:text-xl font-bold text-[#9333EA] mb-3">
                   Loyihaning davomiyligi
                 </h4>
                 <div className="flex flex-col sm:flex-row gap-6 text-sm sm:text-base">
@@ -154,7 +152,7 @@ function Details() {
             </div>
 
             <div>
-              <h4 className="text-lg sm:text-xl font-bold text-[rgba(2,224,61,1)] mb-3">
+              <h4 className="text-lg sm:text-xl font-bold text-[#9333EA] mb-3">
                 Qo‘shimcha ma’lumotlar
               </h4>
               <div className=" flex flex-col gap-3">
@@ -185,12 +183,10 @@ function Details() {
       </div>
 
       {/* FOOTER / BOTTOM SECTION */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-white text-base border-t border-[rgba(2,224,61,1)] pt-12">
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 text-white text-base border-t border-[#9333EA] pt-12">
         {/* 1 - Yo‘nalishlar */}
         <div className="space-y-4">
-          <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
-            Yo‘nalishlar
-          </h4>
+          <h4 className="font-bold text-[#9333EA] text-xl">Yo‘nalishlar</h4>
           <ul className="space-y-2">
             <li>⚡ Frontend (React, Next.js)</li>
             <li>⚡ Backend (Node.js, Java, Spring)</li>
@@ -201,7 +197,7 @@ function Details() {
 
         {/* 2 - Loyiha tafsilotlari */}
         <div className="space-y-4">
-          <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
+          <h4 className="font-bold text-[#9333EA] text-xl">
             Loyiha tafsilotlari
           </h4>
           <p className="leading-relaxed break-words">
@@ -212,7 +208,7 @@ function Details() {
 
         {/* 3 - Texnik ma'lumotlar */}
         <div className="space-y-4">
-          <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
+          <h4 className="font-bold text-[#9333EA] text-xl">
             Texnik ma’lumotlar
           </h4>
           <p>
@@ -236,9 +232,7 @@ function Details() {
 
         {/* 4 - Kontaktlar */}
         <div className="space-y-4">
-          <h4 className="font-bold text-[rgba(2,224,61,1)] text-xl">
-            Kontaktlar
-          </h4>
+          <h4 className="font-bold text-[#9333EA] text-xl">Kontaktlar</h4>
           <a href="https://t.me/freva_manager">
             <p>Teligram: freva_manager</p>
           </a>

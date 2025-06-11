@@ -9,13 +9,15 @@ import Communication from "./communication/page";
 import Footer from "./footer/page";
 import About from "./about/page";
 import Why from "../why/page";
+import Colobrators from "../colobrators/page";
 
 function Page() {
   return (
     <div className="min-h-screen">
+      <Navbar />
+      <Slider />
+      <Colobrators />
       <div className="mt-3 containes">
-        <Navbar />
-        <Slider />
         <Why />
         <About />
         <Filter />

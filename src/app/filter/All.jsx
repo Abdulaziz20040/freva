@@ -59,37 +59,37 @@ function All() {
         animate={inView ? "visible" : "hidden"}
       >
         {visibleData.map((card, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            className="relative group rounded-[10px] overflow-hidden bg-white/10 border border-white/20 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-          >
-            <Link href={`/details/${card.id}`}>
-              <LazyBackground
-                src={card.img}
-                className="h-[260px] w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundPosition: "center" }}
-              />
-            </Link>
-
-            {/* Pastki yozuvlar joyi */}
-            <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-              <h2
-                style={{
-                  fontWeight: "bold",
-                }}
-                className="text-xl text-[#ffffff]"
+          <>
+            <Link href={`/details/${card.id}`} passHref>
+              <motion.div
+                key={card.id}
+                variants={cardVariants}
+                className="relative group rounded-[10px] cursor-pointer overflow-hidden bg-white/10 border border-white/20 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl"
               >
-                {card.title}
-              </h2>
-              <p className="text-sm text-gray-400 mt-1">{card.categories}</p>
-            </div>
+                <LazyBackground
+                  src={card.img}
+                  className="h-[260px] w-full cursor-pointer bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundPosition: "start" }}
+                />
 
-            {/* Dekorativ nur effekti */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
-              <div className="absolute top-0 left-0 w-full h-full bg-white/10 rounded-3xl pointer-events-none" />
-            </div>
-          </motion.div>
+                <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-black/80 to-transparent text-white">
+                  <h2
+                    className="text-xl text-[#ffffff]"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    {card.title}
+                  </h2>
+                  <p className="text-sm text-gray-400 mt-1">
+                    {card.categories}
+                  </p>
+                </div>
+
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                  <div className="absolute top-0 left-0 w-full h-full bg-white/10 rounded-3xl pointer-events-none" />
+                </div>
+              </motion.div>
+            </Link>
+          </>
         ))}
       </motion.div>
 

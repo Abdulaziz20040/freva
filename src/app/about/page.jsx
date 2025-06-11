@@ -3,7 +3,7 @@ import { FaCalendarAlt, FaChartLine, FaCheckCircle } from "react-icons/fa";
 
 export default function About() {
   return (
-    <section className="w-full px-4 md:px-10 mt-10 py-8 text-white">
+    <section className="w-full px-4 md:px-10  text-white pt-30">
       <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
         {/* Left: Jamoamiz Haqida */}
         <div className="w-full lg:w-1/2 bg-transparent border border-[#aa33ea] bg-opacity-10 backdrop-blur-md rounded-3xl p-10 shadow-lg text-left">

@@ -14,7 +14,7 @@ const sliderData = [
       "Freva jamoasi har kuni yangi loyihalar uchun tayyor.",
     ],
     tags: ["Web Dizayn", "UI/UX Dizayner", "Frontend"],
-    projectsCount: "500+",
+    projectsCount: "60+",
     badgeText: "Loyihalar",
     featureText: "Tez va mukammal natija",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -27,7 +27,7 @@ const sliderData = [
       "Saytlar, CRM tizimlar, mobil ilovalar – barchasi bizda.",
     ],
     tags: ["Backend", "Mobil Ilovalar", "CRM"],
-    projectsCount: "200+",
+    projectsCount: "75+",
     badgeText: "Yakunlangan loyihalar",
     featureText: "Innovatsion xizmatlar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -40,7 +40,7 @@ const sliderData = [
       "Portfoliongizni professional tarzda yarating.",
     ],
     tags: ["Grafik Dizayn", "Branding", "Portfolio"],
-    projectsCount: "600+",
+    projectsCount: "90+",
     badgeText: "Yakunlangan ishlanmalar",
     featureText: "Kreativ va ta'sirchan dizayn",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -53,7 +53,7 @@ const sliderData = [
       "Ilovalaringizni foydalanuvchilarga qulay qiling.",
     ],
     tags: ["React Native", "Flutter", "iOS/Android"],
-    projectsCount: "300+",
+    projectsCount: "30+",
     badgeText: "Mobil Loyihalar",
     featureText: "Platformalararo echimlar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -66,7 +66,7 @@ const sliderData = [
       "UI dizayn sizning brendingizni aks ettiradi.",
     ],
     tags: ["UI/UX", "Prototyping", "Interaction"],
-    projectsCount: "500+",
+    projectsCount: "130+",
     badgeText: "Dizayn ishlari",
     featureText: "Estetik va foydali interfeyslar",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -79,7 +79,7 @@ const sliderData = [
       "Kontent marketing, SMM, SEO va boshqalar.",
     ],
     tags: ["Marketing", "SMM", "SEO"],
-    projectsCount: "400+",
+    projectsCount: "16+",
     badgeText: "Marketing loyihalari",
     featureText: "Natijaga yo‘naltirilgan xizmat",
     img: "https://i.ibb.co/DgmhrJZT/laptopboy-removebg-preview.png",
@@ -118,7 +118,7 @@ const Slider = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="relative w-full mt-22 min-h-[450px] md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
+      className=" containes relative  w-full pt-25 min-h-[450px] md:min-h-[550px] flex items-center justify-center sm:px-6 overflow-hidden"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -173,7 +173,7 @@ const Slider = () => {
                   Bepul konsultatsiya olish
                 </button>
               </a>
-              <Link href="/cards">
+              <Link href="/filter">
                 <button className="bg-transparent text-[#9333EA] font-semibold px-5 py-2 rounded-[8px] cursor-pointer hover:-translate-y-[1px] transition border border-[#9333EA] text-sm sm:text-base">
                   Loyihalarni ko‘rish
                 </button>

@@ -26,7 +26,7 @@ function Why() {
   ];
 
   return (
-    <div className=" text-white py-16 px-4">
+    <div className=" text-white  px-4 pt-20 mt-5">
       <div className="max-w-7xl mx-auto text-center">
         <h2
           style={{

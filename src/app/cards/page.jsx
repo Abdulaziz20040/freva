@@ -62,7 +62,12 @@ function Cards() {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="relative group rounded-[10px] overflow-hidden bg-white/10 border border-white/20 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+            className="relative group rounded-[20px] overflow-hidden border border-white/10 shadow-xl backdrop-blur-[6px] transition-all duration-500 hover:scale-[1.03]"
+            style={{
+              background:
+                "linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
+              borderRadius: "20px",
+            }}
           >
             <Link href={`/details/${card.id}`}>
               <LazyBackground
@@ -73,22 +78,20 @@ function Cards() {
             </Link>
 
             {/* Pastki yozuvlar joyi */}
-            <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-              <h2
-                style={{
-                  fontWeight: "bold",
-                }}
-                className="text-xl text-[#ffffff]"
-              >
+            <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-[#171a39]/90 to-transparent text-white z-10">
+              <h2 className="text-xl font-bold text-purple-500 drop-shadow-sm">
                 {card.title}
               </h2>
-              <p className="text-sm text-gray-400 mt-1">{card.categories}</p>
+              <p className="text-sm text-gray-300 mt-1">{card.categories}</p>
             </div>
 
-            {/* Dekorativ nur effekti */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
-              <div className="absolute top-0 left-0 w-full h-full bg-white/10 rounded-3xl pointer-events-none" />
+            {/* Gradient border effekt */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div className="absolute inset-[1px] rounded-[18px] border border-transparent bg-gradient-to-br from-purple-500/40 to-purple-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
+
+            {/* Glow effekt */}
+            <div className="absolute -inset-1 bg-purple-500/20 rounded-[22px] blur-xl opacity-0 group-hover:opacity-50 transition-all duration-700 pointer-events-none z-0" />
           </motion.div>
         ))}
       </motion.div>
