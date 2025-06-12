@@ -10,6 +10,7 @@ import Footer from "./footer/page";
 import About from "./about/page";
 import Why from "../why/page";
 import Colobrators from "../colobrators/page";
+import Services from "../services/page";
 
 function Page() {
   return (
@@ -20,6 +21,7 @@ function Page() {
       <div className="mt-3 containes">
         <Why />
         <About />
+        <Services />
         <Filter />
         <Group />
       </div>
