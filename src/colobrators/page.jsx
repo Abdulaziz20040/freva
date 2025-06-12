@@ -25,7 +25,8 @@ export default function Page() {
         }}
         className="text-white text-center text-2xl md:text-[27px]"
       >
-        Bizga ishon gan kompaniyalar
+        Bizga ishon gan
+        <span className="text-purple-500"> kompaniyalar</span>
       </h2>
 
       {loading ? (

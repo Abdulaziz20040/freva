@@ -29,7 +29,12 @@ function Services() {
     <div className="text-white px-4 pt-20 mt-5">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-[30px] font-extrabold">
+          <h2
+            style={{
+              fontWeight: "800",
+            }}
+            className="text-[30px]"
+          >
             Bizning <span className="text-purple-500">xizmatlar</span>
           </h2>
           <button
