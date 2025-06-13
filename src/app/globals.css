@@ -104,3 +104,21 @@ canvas {
 
   font-weight: 900;
 }
+
+.freva-rotate {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  animation: rotateYInfinite 3s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+@keyframes rotateYInfinite {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-360deg); /* Ongdan chapga */
+  }
+}

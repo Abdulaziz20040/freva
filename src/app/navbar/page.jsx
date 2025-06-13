@@ -52,10 +52,12 @@ function Navbar() {
       >
         <div className="max-w-[1342px] mx-auto flex justify-between items-center px-4">
           <Link href="/" className="flex items-center space-x-2">
+            <img src="/logo.png" alt="Freva Logo" class="freva-rotate" />
+
             <img
-              src="/logo.png"
+              src="/text.png"
               alt="Freva Logo"
-              className="w-22 h-6 object-cover drop-shadow-lg"
+              className="w-17 h-6 object-cover drop-shadow-lg"
             />
           </Link>
 
@@ -64,7 +66,7 @@ function Navbar() {
             <Link href="/" className={linkClass("/")}>
               Asosiy
             </Link>
-            <Link href="/about" className={linkClass("/about")}>
+            <Link href="/aboutt" className={linkClass("/aboutt")}>
               Biz haqimizda
             </Link>
             {/* <Link href="/group" className={linkClass("/group")}>
