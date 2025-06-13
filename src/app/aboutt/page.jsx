@@ -126,7 +126,7 @@ function AboutPage() {
         </div>
         <div>
           <img
-            src="https://www.innosoft.uz/_next/image?url=%2F6283b993-3e60-403d-b77a-a31631a43d8c.png&w=1280&q=75"
+            src="https://i.pinimg.com/736x/50/0b/5e/500b5e5dbb9d0fe914df467547bd9500.jpg"
             alt="Success"
             className="rounded-xl shadow-lg"
           />
