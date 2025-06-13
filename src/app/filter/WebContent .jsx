@@ -19,12 +19,13 @@ function WebContent() {
 
   useEffect(() => {
     axios
-      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .get("https://177add8ca22d8b9a.mokky.dev/projectss")
       .then((res) => {
         // faqat category === "mobile" bo'lganlarni filtrlaymiz
-        const mobileData = res.data.filter(
-          (item) => item.category === "frontend"
+        const mobileData = res.data.filter((item) =>
+          item.categories?.some((cat) => cat.toLowerCase().includes("frontend"))
         );
+
         setData(mobileData);
       })
       .catch((err) => console.error(err));

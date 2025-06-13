@@ -19,7 +19,7 @@ function Cards() {
 
   useEffect(() => {
     axios
-      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .get("https://177add8ca22d8b9a.mokky.dev/projectss")
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   }, []);

@@ -11,7 +11,7 @@ function Details() {
 
   useEffect(() => {
     if (id) {
-      fetch(`https://177add8ca22d8b9a.mokky.dev/card/${id}`)
+      fetch(`https://177add8ca22d8b9a.mokky.dev/projectss/${id}`)
         .then((res) => res.json())
         .then((data) => {
           setProduct(data);

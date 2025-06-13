@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import LazyBackground from "./LazyBackground";
 import Link from "next/link";
 
-function MobileContent() {
+function All() {
   const [data, setData] = useState([]);
   const [visibleCount, setVisibleCount] = useState(9);
 
@@ -19,12 +19,13 @@ function MobileContent() {
 
   useEffect(() => {
     axios
-      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .get("https://177add8ca22d8b9a.mokky.dev/projectss")
       .then((res) => {
         // faqat category === "mobile" bo'lganlarni filtrlaymiz
-        const mobileData = res.data.filter(
-          (item) => item.category === "mobile"
+        const mobileData = res.data.filter((item) =>
+          item.categories?.some((cat) => cat.toLowerCase().includes("mobile"))
         );
+
         setData(mobileData);
       })
       .catch((err) => console.error(err));
@@ -59,49 +60,53 @@ function MobileContent() {
     <div className="container mx-auto px-4 py-10">
       <motion.div
         ref={ref}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
         {visibleData.map((card, index) => (
-          <motion.div
-            key={index}
-            className="h-[260px] w-full cursor-pointer rounded-lg overflow-hidden shadow-lg relative group"
-            variants={cardVariants}
-          >
-            <Link href={`/details/${card.id}`}>
-              <LazyBackground
-                src={card.img}
-                className="h-full w-full bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundPosition: "left top" }}
-              />
-            </Link>
+          <>
+            <Link href={`/details/${card.id}`} passHref>
+              <motion.div
+                key={card.id}
+                variants={cardVariants}
+                className="relative group rounded-[10px] cursor-pointer overflow-hidden bg-white/10 border border-white/20 shadow-xl backdrop-blur-md transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+              >
+                <LazyBackground
+                  src={card.img}
+                  className="h-[260px] w-full cursor-pointer bg-cover bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundPosition: "start" }}
+                />
 
-            <div
-              style={{
-                borderRadius: "200px 0 0 0",
-                padding: "40px 0px 0px 70px",
-              }}
-              className="absolute bottom-0 right-0 bg-black/60 backdrop-blur-md h-[140px] w-[270px] text-left"
-            >
-              <h2 className="font-bold text-xl text-orange-400">
-                {card.title}
-              </h2>
-              <p className="text-sm text-gray-300 mt-1 mb-1">Web UI</p>
-              <p className="text-gray-300 text-sm">{card.desc}</p>
-            </div>
-          </motion.div>
+                <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-t from-black/80 to-transparent text-white">
+                  <h2
+                    className="text-xl text-[#ffffff]"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    {card.title}
+                  </h2>
+                  <p className="text-sm text-gray-400 mt-1">
+                    {card.categories}
+                  </p>
+                </div>
+
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                  <div className="absolute top-0 left-0 w-full h-full bg-white/10 rounded-3xl pointer-events-none" />
+                </div>
+              </motion.div>
+            </Link>
+          </>
         ))}
       </motion.div>
 
       {showMoreAvailable && (
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-10">
           <button
             onClick={handleShowMore}
-            className="px-6 py-3 bg-gradient-to-r from-[#0c8932] to-[#29CA59] text-white rounded-md hover:bg-orange-600 transition"
+            className=" cursor-pointer text-white font-semibold text-[15px] px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#9333EA] bg-transparent hover:text-[#9333EA] transition-all"
           >
-            Ko'proq ko'rsatish
+            Ko‘proq ko‘rsatish
           </button>
         </div>
       )}
@@ -109,4 +114,4 @@ function MobileContent() {
   );
 }
 
-export default MobileContent;
+export default All;

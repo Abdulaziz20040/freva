@@ -19,10 +19,12 @@ function UIDesignContent() {
 
   useEffect(() => {
     axios
-      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .get("https://177add8ca22d8b9a.mokky.dev/projectss")
       .then((res) => {
         // faqat category === "mobile" bo'lganlarni filtrlaymiz
-        const mobileData = res.data.filter((item) => item.category === "figma");
+        const mobileData = res.data.filter((item) =>
+          item.categories?.some((cat) => cat.toLowerCase().includes("figma"))
+        );
         setData(mobileData);
       })
       .catch((err) => console.error(err));

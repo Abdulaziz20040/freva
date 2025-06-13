@@ -72,7 +72,7 @@ const Price = () => {
 
       {/* Cards */}
       <div className=" px-4  pb-5">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 justify-center">
+        <div className=" flex flex-col items-start gap-10">
           {filteredData.map((item, index) => {
             const isExpanded = expandedIndex === index;
             return (
@@ -85,7 +85,7 @@ const Price = () => {
                   duration: 0.7,
                   ease: "easeOut",
                 }}
-                className="p-4 h-[600px] bg-white/10 hover:border-[#aa33ea] hover:border  cursor-pointer  rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform duration-300"
+                className="p-4 h-[400px] w-[1200px] bg-white/10 hover:border-[#aa33ea] hover:border  cursor-pointer  rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-transform duration-300"
               >
                 <h3 className="text-2xl font-bold text-[#ffffff] mb-2">
                   {item.title}
@@ -94,9 +94,7 @@ const Price = () => {
                   {item.price}
                 </p>
 
-                <ul
-                  className={`text-sm text-gray-300 space-y-2 overflow-y-auto transition-all no-scrollbar`}
-                >
+                <ul className={`text-sm text-gray-300 space-y-2 `}>
                   {item.features?.map((feature, i) => (
                     <li key={i}>✅ {feature}</li>
                   ))}

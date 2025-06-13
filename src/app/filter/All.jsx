@@ -19,7 +19,7 @@ function All() {
 
   useEffect(() => {
     axios
-      .get("https://177add8ca22d8b9a.mokky.dev/card")
+      .get("https://177add8ca22d8b9a.mokky.dev/projectss")
       .then((res) => setData(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -97,7 +97,7 @@ function All() {
         <div className="flex justify-center mt-10">
           <button
             onClick={handleShowMore}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-green-400 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+            className=" cursor-pointer text-white font-semibold text-[15px] px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#9333EA] bg-transparent hover:text-[#9333EA] transition-all"
           >
             Ko‘proq ko‘rsatish
           </button>

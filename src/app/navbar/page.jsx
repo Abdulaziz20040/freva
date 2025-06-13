@@ -72,7 +72,7 @@ function Navbar() {
             {/* <Link href="/group" className={linkClass("/group")}>
               Bog‘lanish
             </Link> */}
-            <Link href="/filter" className={linkClass("/filter")}>
+            <Link href="/projects" className={linkClass("/projects")}>
               Loyihalarimiz
             </Link>
 
@@ -83,9 +83,9 @@ function Navbar() {
               </span>
             </Dropdown> */}
 
-            <Link href="/price" className={linkClass("/price")}>
+            {/* <Link href="/price" className={linkClass("/price")}>
               Narxlar
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Help & Button */}
@@ -94,14 +94,16 @@ function Navbar() {
               <MdHeadset className="text-[#9333EA]" size={20} />
               <span className="">+998(77) 014 50 47</span>
             </div>
-            <Link href="/order">
+            {/* <Link href="/order"> */}
+            <a href="https://t.me/Development_04">
               <button
                 type="button"
                 className="bg-[#9333EA] cursor-pointer text-white font-semibold text-[15px] px-6 py-2.5 rounded-full shadow hover:shadow-lg border border-[#9333EA] hover:bg-transparent hover:text-[#9333EA] transition-all"
               >
                 Buyurtma berish
               </button>
-            </Link>
+            </a>
+            {/* </Link> */}
           </div>
 
           {/* Mobile Toggle */}
